@@ -1,2 +1,2 @@
 # GoAesthetic
-Projeto para deixo Aesthetic
+Projeto para deixa-lo Aesthetic
