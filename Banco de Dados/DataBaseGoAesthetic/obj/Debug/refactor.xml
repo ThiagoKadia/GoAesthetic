@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0">
+  <Operation Name="Rename Refactor" Key="094eb292-f808-4c4e-b538-a51c6e63f5d2" ChangeDateTime="10/08/2023 15:08:29" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbUsuarios].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbUsuarios]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="USR_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e6b0ec8e-82cd-41ba-b979-8e352576c36f" ChangeDateTime="10/08/2023 15:15:44" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbMarcosEvolucao].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbMarcosEvolucao]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MEV_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="793861a5-b666-4257-96b4-3ecda989a193" ChangeDateTime="10/08/2023 15:21:38" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbMarcosEvolucao].[USR_Altura]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbMarcosEvolucao]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MEV_Altura" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="48d77547-b076-4560-9a4c-29bf0288513f" ChangeDateTime="10/08/2023 15:22:59" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbMarcosEvolucao].[MEV_Foto]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbMarcosEvolucao]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MEV_CaminhoFoto" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="13d37483-4ac4-4609-aac2-5140747d03aa" ChangeDateTime="10/08/2023 15:23:18" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbMarcosEvolucao].[USR_ID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbMarcosEvolucao]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="USR_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8f62af29-9f5d-417c-83ad-9bc66c1d54fa" ChangeDateTime="10/08/2023 15:24:25" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbRegistroRefeicoes].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbRegistroRefeicoes]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RRF_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ccb53824-fa41-434f-b1a2-9eb1ccd0149e" ChangeDateTime="10/08/2023 15:32:23" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbAlimentos].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ALM_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3c20bf7f-26d2-4f06-a19c-8bd7d2819d50" ChangeDateTime="10/08/2023 15:35:00" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbGrupoAlimentos].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbGrupoAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GLA_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c41e2c5c-f372-4a52-8e5a-7a8ee6b3d00c" ChangeDateTime="10/08/2023 15:36:35" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbGrupoAlimentos].[GLA_Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbGrupoAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GAL_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8ce2bba7-1666-46e7-a1f9-52b9ee889694" ChangeDateTime="10/08/2023 15:36:37" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbGrupoAlimentos].[GAL_Nome]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbGrupoAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GAL_Nome" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8744a641-665d-4085-a388-1ba4ec4c0c14" ChangeDateTime="10/08/2023 15:36:56" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbInformacoesAlimentos].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbInformacoesAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7c4daac5-fecf-4c2c-a557-d2188bdcbe33" ChangeDateTime="10/08/2023 15:39:04" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbInformacoesAlimentos].[IA_Nome]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbInformacoesAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_Nome" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="439cb6b7-e4ad-43d9-9edf-ee1f8381496c" ChangeDateTime="10/08/2023 15:39:07" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbInformacoesAlimentos].[IA_Energia]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbInformacoesAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_Energia" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ae09fe11-f23d-47fd-a3bc-dfd5bd580e99" ChangeDateTime="10/08/2023 15:39:09" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbInformacoesAlimentos].[IA_Proteina]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbInformacoesAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_Proteina" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8823a764-c793-482f-9297-b2f7558c60d9" ChangeDateTime="10/08/2023 15:39:11" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbInformacoesAlimentos].[IA_Lipideos]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbInformacoesAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_Lipideos" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="496b07a8-7382-4236-b7c9-f793b6598716" ChangeDateTime="10/08/2023 15:39:13" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbInformacoesAlimentos].[IA_Colasterol]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbInformacoesAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_Colasterol" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8ec166d5-8436-4ddd-8b9a-465e0c748ee7" ChangeDateTime="10/08/2023 15:39:15" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbInformacoesAlimentos].[IA_Carboidrato]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbInformacoesAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_Carboidrato" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2bf21cec-a09d-4992-bdbc-ec1dad15b89b" ChangeDateTime="10/08/2023 15:39:17" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbInformacoesAlimentos].[IA_FibraAlimentar]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbInformacoesAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_FibraAlimentar" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9cea7c25-31b3-4148-b6ae-aa68e50bdae7" ChangeDateTime="10/08/2023 15:39:18" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbInformacoesAlimentos].[IA_Ferro]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbInformacoesAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_Ferro" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9328112c-bd5b-43b8-916b-7e41e5bce924" ChangeDateTime="10/08/2023 15:39:21" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbInformacoesAlimentos].[IA_Sodio]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbInformacoesAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_Sodio" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2a341d35-257d-41de-b263-5acb6ab04253" ChangeDateTime="10/08/2023 15:39:23" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbInformacoesAlimentos].[IA_VitaminaC]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbInformacoesAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_VitaminaC" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2e1aa074-0607-4675-8cb6-8bee4769b8d6" ChangeDateTime="10/08/2023 15:39:50" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[tbAlimentos].[ALM_Nome]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbAlimentos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IFA_Id" />
+  </Operation>
+</Operations>
