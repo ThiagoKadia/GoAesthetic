@@ -3,14 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoAesthetic", "GoAesthetic.csproj", "{674FCAC5-61EE-463C-86C0-E616F38CCF8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoAesthetic", "GoAesthetic.csproj", "{674FCAC5-61EE-463C-86C0-E616F38CCF8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoAestheticEntidades", "..\GoAestheticEntidades\GoAestheticEntidades.csproj", "{F27B5E99-B1C4-4C8B-B8A3-09CE02085135}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoAestheticEntidades", "..\GoAestheticEntidades\GoAestheticEntidades.csproj", "{F27B5E99-B1C4-4C8B-B8A3-09CE02085135}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E76AA644-094E-40F3-BCA2-39E55E4EC4D5}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoAestheticNegocio", "..\GoAestheticNegocio\GoAestheticNegocio.csproj", "{4DB3292C-D7FD-4ED8-BFA7-AB6B43A7FDFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{F27B5E99-B1C4-4C8B-B8A3-09CE02085135}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F27B5E99-B1C4-4C8B-B8A3-09CE02085135}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F27B5E99-B1C4-4C8B-B8A3-09CE02085135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DB3292C-D7FD-4ED8-BFA7-AB6B43A7FDFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DB3292C-D7FD-4ED8-BFA7-AB6B43A7FDFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DB3292C-D7FD-4ED8-BFA7-AB6B43A7FDFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DB3292C-D7FD-4ED8-BFA7-AB6B43A7FDFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

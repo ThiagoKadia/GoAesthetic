@@ -1,7 +1,27 @@
+using GoAestheticEntidades;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<GoAestheticDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("GoAestheticDBLocal"));
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDistributedMemoryCache();
+
+// Configure session options
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(10);
+});
+
+builder.Services.AddMvc();
+
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -17,7 +37,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(

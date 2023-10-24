@@ -9,33 +9,18 @@ namespace GoAesthetic.Controllers
 {
     public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(GoAestheticDbContext context) : base(context)
         {
-            _logger = logger;
         }
 
         public async Task<IActionResult> Index()
         {
-            var alimentos = await contexto.AlimentosViewModel.ToListAsync();
-            var grupoAlimentos = await contexto.GrupoAlimentoViewModel.ToListAsync();
-            var informacoesAlimentos = await contexto.InformacoesAlimentosViewModel.ToListAsync();
-            var marcosEvolucao = await contexto.MarcosEvolucaoViewModel.ToListAsync();
-            var registroRefeicoes = await contexto.RegistroRefeicoesViewModel.ToListAsync();
-            var usuarios = await contexto.UsuariosViewModel.ToListAsync();
-            return View();
-        }
+            if (!VerificaUsuarioLogado())
+                return RedirectToAction("Index", "Login");
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
+
         }
     }
 }

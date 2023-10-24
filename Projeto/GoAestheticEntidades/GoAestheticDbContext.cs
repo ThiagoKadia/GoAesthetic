@@ -1,4 +1,5 @@
 ﻿using GoAestheticEntidades.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace GoAestheticEntidades
 {
-    public class GoAestheticDbContext : DbContext
+    public class GoAestheticDbContext : IdentityDbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DUNOTEBOOK\\SQLEDUARDO;Database=GoAestethic;User Id=sa;Password=1camisa*;TrustServerCertificate=True;");
+        public GoAestheticDbContext(DbContextOptions<GoAestheticDbContext> options) : base(options)
+        { 
+
         }
 
         public DbSet<AlimentosViewModel> AlimentosViewModel { get; set; }

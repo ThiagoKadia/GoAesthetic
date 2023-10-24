@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RH/eBtymUgOYerZeKGU6jJMhBiAGArw/mD+fIV25f1g=",
+  "Hash": "eOkflxiY7w4CpQVTCD/HMnWVJ97B2dN5mAEegO5rUlc=",
   "Source": "GoAesthetic",
   "BasePath": "_content/GoAesthetic",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Estudos\\Projeto GoAsthetic\\GoAesthetic\\Projeto\\GoAesthetic\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\GoAesthetic.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Estudos\\Projeto GoAsthetic\\GoAesthetic\\Projeto\\GoAesthetic\\wwwroot\\css\\Login.css",
+      "SourceId": "GoAesthetic",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Estudos\\Projeto GoAsthetic\\GoAesthetic\\Projeto\\GoAesthetic\\wwwroot\\",
+      "BasePath": "_content/GoAesthetic",
+      "RelativePath": "css/Login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login.css"
+    },
+    {
       "Identity": "C:\\Estudos\\Projeto GoAsthetic\\GoAesthetic\\Projeto\\GoAesthetic\\wwwroot\\css\\site.css",
       "SourceId": "GoAesthetic",
       "SourceType": "Discovered",
@@ -83,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Estudos\\Projeto GoAsthetic\\GoAesthetic\\Projeto\\GoAesthetic\\wwwroot\\img\\logo.png",
+      "SourceId": "GoAesthetic",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Estudos\\Projeto GoAsthetic\\GoAesthetic\\Projeto\\GoAesthetic\\wwwroot\\",
+      "BasePath": "_content/GoAesthetic",
+      "RelativePath": "img/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo.png"
     },
     {
       "Identity": "C:\\Estudos\\Projeto GoAsthetic\\GoAesthetic\\Projeto\\GoAesthetic\\wwwroot\\js\\site.js",
