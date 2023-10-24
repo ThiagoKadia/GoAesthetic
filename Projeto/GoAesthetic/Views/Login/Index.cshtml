@@ -1,0 +1,27 @@
+﻿@model GoAestheticEntidades.Entities.UsuariosViewModel;
+
+<!DOCTYPE html>
+<head>
+        <meta charset = "UTF-8">
+        <link rel="stylesheet" href="css/Login.css">
+        <title> Login </title>
+</head>
+<body>
+    <section class = "area-login">
+      <div class="login">
+        
+        <div>
+          <img src="img/logo.png">
+        </div>
+
+        <form  asp-controller="Login" asp-action="Edit">
+          <input asp-for="Email" type ="text" name ="email" placeholder = "Email" autofocus>
+          <input asp-for="Senha" type ="password" name ="senha" placeholder = "Senha">
+          <span class"lnr-eye"></span>
+          <input type="submit" value = "entrar">
+      </form>
+      <p>Não tem cadastro? <a href="Cadastro.html">Criar um conta</a></p>
+      </div>
+    </section>
+</body>
+

@@ -1,0 +1,328 @@
+﻿++Solução 'GoAesthetic' ‎(2 de 2 projetos)
+++Solution Items
+i:{00000000-0000-0000-0000-000000000000}:Solution Items
+++.editorconfig
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\.editorconfig
+i:{e76aa644-094e-40f3-bca2-39e55e4ec4d5}:C:\Estudos\Projeto GoAsthetic\GoAesthetic\Projeto\GoAesthetic\.editorconfig
+++GoAestheticEntidades
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticentidades\bin\debug\net6.0\goaestheticentidades.dll
+i:{00000000-0000-0000-0000-000000000000}:GoAestheticEntidades
+++Dependências
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:>536
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:>308
+i:{4db3292c-d7fd-4ed8-bfa7-ab6b43a7fdff}:>577
+++Entities
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticentidades\entities\
+++AlimentosViewModel.cs
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticentidades\entities\alimentosviewmodel.cs
+++GrupoAlimentoViewModel.cs
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticentidades\entities\grupoalimentoviewmodel.cs
+++InformacoesAlimentosViewModel.cs
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticentidades\entities\informacoesalimentosviewmodel.cs
+++MarcosEvolucaoViewModel.cs
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticentidades\entities\marcosevolucaoviewmodel.cs
+++RegistroRefeicoesViewModel.cs
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticentidades\entities\registrorefeicoesviewmodel.cs
+++UsuariosViewModel.cs
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticentidades\entities\usuariosviewmodel.cs
+++GoAestheticDbContext.cs
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticentidades\goaestheticdbcontext.cs
+++Analisadores
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:analisadores
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:analisadores
+i:{4db3292c-d7fd-4ed8-bfa7-ab6b43a7fdff}:analisadores
+++Estruturas
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:estruturas
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:estruturas
+i:{4db3292c-d7fd-4ed8-bfa7-ab6b43a7fdff}:estruturas
+++Pacotes
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:pacotes
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:pacotes
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\program files\dotnet\sdk\6.0.201\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\program files\dotnet\sdk\6.0.201\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{4db3292c-d7fd-4ed8-bfa7-ab6b43a7fdff}:c:\program files\dotnet\sdk\6.0.201\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\program files\dotnet\sdk\6.0.201\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\program files\dotnet\sdk\6.0.201\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{4db3292c-d7fd-4ed8-bfa7-ab6b43a7fdff}:c:\program files\dotnet\sdk\6.0.201\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\users\eduls\.nuget\packages\microsoft.entityframeworkcore.analyzers\7.0.11\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\users\eduls\.nuget\packages\microsoft.entityframeworkcore.analyzers\7.0.11\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+++Microsoft.Extensions.Logging.Generators
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\users\eduls\.nuget\packages\microsoft.extensions.logging.abstractions\7.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\users\eduls\.nuget\packages\microsoft.extensions.logging.abstractions\7.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+++System.Text.Json.SourceGeneration
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.3\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.3\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{4db3292c-d7fd-4ed8-bfa7-ab6b43a7fdff}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.3\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+++Microsoft.NETCore.App
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\microsoft.netcore.app
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticentidades\microsoft.netcore.app
+i:{4db3292c-d7fd-4ed8-bfa7-ab6b43a7fdff}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticnegocio\microsoft.netcore.app
+++Microsoft.EntityFrameworkCore.SqlServer (7.0.11)
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:>566
+i:{f27b5e99-b1c4-4c8b-b8a3-09ce02085135}:>548
+++GoAesthetic
+i:{00000000-0000-0000-0000-000000000000}:GoAesthetic
+++Connected Services 
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:>537
+++Properties
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\properties\
+++launchSettings.json
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\properties\launchsettings.json
+++wwwroot
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\
+++Controllers
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\controllers\
+++ControllersBase
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\controllers\controllersbase\
+++BaseController.cs
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\controllers\controllersbase\basecontroller.cs
+++HomeController.cs
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\controllers\homecontroller.cs
+++Models
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\models\
+++Views
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\
+++Home
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\home\
+++Shared
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\shared\
+++_ViewImports.cshtml
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\_viewimports.cshtml
+++_ViewStart.cshtml
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\_viewstart.cshtml
+++appsettings.json
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\appsettings.json
+++Program.cs
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\program.cs
+++Nenhuma dependência de serviço descoberta
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:>538
+++Projetos
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:projetos
+++css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\css\
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\
+++js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\js\
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\
+++lib
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\
+++favicon.ico
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\favicon.ico
+++ErrorViewModel.cs
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\models\errorviewmodel.cs
+++Index.cshtml
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\home\index.cshtml
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\login\index.cshtml
+++Privacy.cshtml
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\home\privacy.cshtml
+++_Layout.cshtml
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\shared\_layout.cshtml
+++_ValidationScriptsPartial.cshtml
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\shared\_validationscriptspartial.cshtml
+++Error.cshtml
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\shared\error.cshtml
+++appsettings.Development.json
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\appsettings.development.json
+++Microsoft.AspNetCore.Analyzers
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\program files\dotnet\sdk\6.0.201\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.App.Analyzers
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.3\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+++Microsoft.AspNetCore.App.CodeFixes
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.3\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\program files\dotnet\sdk\6.0.201\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\program files\dotnet\sdk\6.0.201\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.AspNetCore.Razor.SourceGenerator.Tooling.Internal
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\program files\dotnet\sdk\6.0.201\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.sourcegenerator.tooling.internal.dll
+++Microsoft.NET.Sdk.Razor.SourceGenerators
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\program files\dotnet\sdk\6.0.201\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+++Microsoft.AspNetCore.App
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\microsoft.aspnetcore.app
+++site.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\css\site.css
+++site.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\js\site.js
+++bootstrap
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\
+++jquery
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery\
+++jquery-validation
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery-validation\
+++jquery-validation-unobtrusive
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery-validation-unobtrusive\
+++_Layout.cshtml.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\shared\_layout.cshtml.css
+++dist
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery\dist\
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery-validation\dist\
+++LICENSE
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\license
+++LICENSE.txt
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery\license.txt
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery-validation-unobtrusive\license.txt
+++LICENSE.md
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery-validation\license.md
+++jquery.validate.unobtrusive.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
+++jquery.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery\dist\jquery.js
+++additional-methods.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery-validation\dist\additional-methods.js
+++jquery.validate.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+++jquery.validate.unobtrusive.min.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
+++bootstrap.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+++bootstrap-grid.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+++bootstrap-reboot.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+++bootstrap-utilities.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+++bootstrap.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+++jquery.min.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery\dist\jquery.min.js
+++additional-methods.min.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+++jquery.validate.min.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+++bootstrap.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+++bootstrap.min.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+++bootstrap.rtl.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+++bootstrap-grid.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+++bootstrap-grid.min.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+++bootstrap-grid.rtl.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+++bootstrap-reboot.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+++bootstrap-reboot.min.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+++bootstrap-reboot.rtl.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+++bootstrap-utilities.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+++bootstrap-utilities.min.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+++bootstrap-utilities.rtl.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+++bootstrap.bundle.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+++bootstrap.esm.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+++bootstrap.js.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+++bootstrap.min.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+++jquery.min.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\jquery\dist\jquery.min.map
+++bootstrap.min.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+++bootstrap.rtl.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+++bootstrap.rtl.min.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+++bootstrap-grid.min.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+++bootstrap-grid.rtl.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+++bootstrap-grid.rtl.min.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+++bootstrap-reboot.min.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+++bootstrap-reboot.rtl.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+++bootstrap-reboot.rtl.min.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+++bootstrap-utilities.min.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+++bootstrap-utilities.rtl.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+++bootstrap-utilities.rtl.min.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+++bootstrap.bundle.js.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+++bootstrap.bundle.min.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+++bootstrap.esm.js.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+++bootstrap.esm.min.js
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+++bootstrap.min.js.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+++bootstrap.rtl.min.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+++bootstrap-grid.rtl.min.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+++bootstrap-reboot.rtl.min.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+++bootstrap-utilities.rtl.min.css.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+++bootstrap.bundle.min.js.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+++bootstrap.esm.min.js.map
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+++Documentos de Script
+++VM5
+++localhost:7239
+++aspnetcore-browser-refresh.js
+++Solução 'GoAesthetic' ‎(3 de 3 projetos)
+i:{00000000-0000-0000-0000-000000000000}:GoAesthetic.sln
+++GoAestheticNegocio
+i:{00000000-0000-0000-0000-000000000000}:GoAestheticNegocio
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticnegocio\goaestheticnegocio.csproj
+++Class1.cs
+++C:\Program Files\dotnet\sdk\6.0.201\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
+++C:\Program Files\dotnet\sdk\6.0.201\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.NetAnalyzers.dll
+++NovaPasta
+++Constantes.cs
+i:{4db3292c-d7fd-4ed8-bfa7-ab6b43a7fdff}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaestheticnegocio\constantes.cs
+++LoginController.cs
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\controllers\logincontroller.cs
+++Login
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\views\login\
+++Login.css
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\css\login.css
+++img
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\img\
+++logo.png
+i:{674fcac5-61ee-463c-86c0-e616f38ccf8a}:c:\estudos\projeto goasthetic\goaesthetic\projeto\goaesthetic\wwwroot\img\logo.png
+++VM14
+++VM15
+++VM16
+++VM17
+++VM18
+++VM19
+++VM20
+++VM21
+++VM22
+++VM23
+++VM24
+++VM25
+++VM26
+++VM27
+++VM28
+++VM29
+++VM30
+++VM31
+++VM32
+++VM33
+++VM34
+++VM35
+++VM36
+++VM37
+++VM38
+++VM39
+++VM40
+++Edit

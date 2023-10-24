@@ -1,0 +1,85 @@
+﻿@{
+    bool sideBar = ViewBag.SideBar;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GoAesthetic</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GoAesthetic.styles.css" asp-append-version="true" />
+</head>
+<body>
+    @if (!sideBar)
+    {
+        <aside class="sidebar">
+            <header class="sidebar-header">
+                <img class="logo" src="img/logo.png" alt="logo">
+            </header>
+
+            <nav class="border">
+                <a href="Home.html">
+                    <button>
+                        <span>
+                            <i class="material-symbols-outlined"> home</i>
+                            <span>Home</span>
+                        </span>
+                    </button>
+                </a>
+
+                <a href="Registrar.html">
+                    <button>
+                        <span>
+                            <i class="material-symbols-outlined"> restaurant</i>
+                            <span>Registrar Alimento</span>
+                        </span>
+                    </button>
+                </a>
+
+                <a href="Galeria.html">
+                    <button>
+                        <span>
+                            <i class="material-symbols-outlined"> photo_camera</i>
+                            <span>Galeria de Fotos</span>
+                        </span>
+                    </button>
+                </a>
+
+                <a href="Relatorios.html">
+                    <button>
+                        <span>
+                            <i class="material-symbols-outlined"> description</i>
+                            <span>Relatórios</span>
+                        </span>
+                    </button>
+                </a>
+
+                <a href="Configuracoes.html">
+                    <button>
+                        <span>
+                            <i class="material-symbols-outlined"> manage_accounts</i>
+                            <span>Configurações do Usuário</span>
+                        </span>
+                    </button>
+                </a>
+
+            </nav>
+        </aside>
+    }
+
+</body>
+
+
+
+<main class="main">
+    @RenderBody()
+</main>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</html>

@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[tbGrupoAlimentos]
+(
+	[GAL_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [GAL_Nome] VARCHAR(100) NULL
+)
