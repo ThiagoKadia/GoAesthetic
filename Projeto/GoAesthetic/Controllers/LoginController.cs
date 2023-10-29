@@ -31,7 +31,7 @@ namespace GoAesthetic.Controllers
                                                           {
                                                               Nome = u.Nome,
                                                               Senha = u.Senha,
-                                                              NomeRole = u.Role.Nome                                                        
+                                                              NomeRole = u.Autorizacao.Role                                                        
                                                           })
                                                           .AsNoTracking()                                                     
                                                           .FirstOrDefaultAsync();

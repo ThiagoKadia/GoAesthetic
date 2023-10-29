@@ -1,16 +1,9 @@
 ﻿using GoAestheticEntidades.Entities;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GoAestheticEntidades
 {
-    public class GoAestheticDbContext : IdentityDbContext<IdentityUser>
+    public class GoAestheticDbContext : DbContext
     {
         public GoAestheticDbContext(DbContextOptions<GoAestheticDbContext> options) : base(options)
         {
@@ -23,6 +16,7 @@ namespace GoAestheticEntidades
         public DbSet<MarcosEvolucaoViewModel> MarcosEvolucaoViewModel { get; set; }
         public DbSet<RegistroRefeicoesViewModel> RegistroRefeicoesViewModel { get; set; }
         public DbSet<UsuariosViewModel> UsuariosViewModel { get; set; }
-        public DbSet<RolesViewModel> RolesViewModel { get; set; }
+        public DbSet<AutorizacaoViewModel> RolesViewModel { get; set; }
+        public DbSet<DicionarioViewModel> DicionarioViewModel { get; set; }
     }
 }
