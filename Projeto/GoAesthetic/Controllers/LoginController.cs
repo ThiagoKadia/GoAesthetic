@@ -27,19 +27,19 @@ namespace GoAesthetic.Controllers
         public async Task<IActionResult> Edit(UsuariosViewModel usuario)
         {
             var usuarioLogado = await Contexto.UsuariosViewModel.Where(x => x.Email == usuario.Email && x.Senha == usuario.Senha)
-                                                          .Select(u => new UsuariosViewModel()
-                                                          {
-                                                              Nome = u.Nome,
-                                                              Senha = u.Senha,
-                                                              NomeRole = u.Autorizacao.Role                                                        
-                                                          })
-                                                          .AsNoTracking()                                                     
-                                                          .FirstOrDefaultAsync();
+                                                                .Select(u => new UsuariosViewModel()
+                                                                {
+                                                                    Nome = u.Nome,
+                                                                    Senha = u.Senha,
+                                                                    NomeRole = u.Autorizacao.Role                                                        
+                                                                })
+                                                                .AsNoTracking()                                                     
+                                                                .FirstOrDefaultAsync();
 
             if (usuarioLogado == null)
                 return View("Index");
             
-            RealizaLoginUsuario(usuarioLogado);
+            RealizaLogInUsuario(usuarioLogado);
 
             return RedirectToAction("Index", "Home");
         } 

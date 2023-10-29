@@ -27,7 +27,7 @@ namespace GoAesthetic.Controllers.ControllersBase
             Contexto = context;
         }
 
-        protected async void RealizaLoginUsuario(UsuariosViewModel Usuario)
+        protected async void RealizaLogInUsuario(UsuariosViewModel Usuario)
         {
             var claims = new List<Claim>()
             {
@@ -46,6 +46,12 @@ namespace GoAesthetic.Controllers.ControllersBase
                 });
 
         }
+
+        protected async void RealizaLogOutUsuario()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        }
+        
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {

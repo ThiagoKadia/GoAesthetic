@@ -2,6 +2,7 @@ using GoAestheticEntidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using GoAestheticNegocio.Constantes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,12 +11,12 @@ builder.Services.AddDbContext<GoAestheticDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GoAestheticDBLocal"));
 });
 
-// Add services to the container.
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDistributedMemoryCache();
 
-// Configure session options
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(20);
@@ -39,7 +40,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddAuthorization(options =>
 {
-    string[] roles = new string[] { "user", "admin" };
+    string[] roles = new string[] { Roles.Usuario, Roles.Administrador };
 
     options.AddPolicy("RequirimentoMinimoAcesso",
     policy => policy.RequireRole(roles));
@@ -47,11 +48,11 @@ builder.Services.AddAuthorization(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    
     app.UseHsts();
 }
 
