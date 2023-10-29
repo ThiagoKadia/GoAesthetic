@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GoAetheticApi.Controllers
 {
-    [Route("v1/api/dictionary")]
+    [Route("v1/api/dicionario")]
     [ApiController]
     [Authorize(Roles = Roles.Sistema)]
     public class DicionarioController : ControllerBase

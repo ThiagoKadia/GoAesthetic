@@ -30,7 +30,7 @@ namespace GoAetheticApi.Controllers
                 return BadRequest(errorResponse);
             }
 
-            var tmb = Math.Floor(655.0955 + (1.8496 * request.Height) + (9.5634 * request.Weight) - (4.6756 * request.Age));
+            var tmb = Math.Floor(655.0955 + (1.8496 * request.Altura) + (9.5634 * request.Peso) - (4.6756 * request.Idade));
 
             return ValidateTmb(tmb);
         }
@@ -54,7 +54,7 @@ namespace GoAetheticApi.Controllers
                 return BadRequest(errorResponse);
             }
 
-            var tmb = Math.Floor(66.4730 + (5.0033 * request.Height + 13.7516 * request.Weight - 6.7550 * request.Age));
+            var tmb = Math.Floor(66.4730 + (5.0033 * request.Altura + 13.7516 * request.Peso - 6.7550 * request.Idade));
 
             return ValidateTmb(tmb);
         }
@@ -87,7 +87,7 @@ namespace GoAetheticApi.Controllers
             errorResponse = null;
             try
             {
-                if (request.Age <= 0)
+                if (request.Idade <= 0)
                 {
                     errorResponse = new BaseResponse
                     {
@@ -98,7 +98,7 @@ namespace GoAetheticApi.Controllers
                     return false;
                 }
 
-                if (request.Weight <= 0)
+                if (request.Peso <= 0)
                 {
                     errorResponse = new BaseResponse
                     {
@@ -109,7 +109,7 @@ namespace GoAetheticApi.Controllers
                     return false;
                 }
 
-                if (request.Height <= 0)
+                if (request.Altura <= 0)
                 {
                     errorResponse = new BaseResponse
                     {

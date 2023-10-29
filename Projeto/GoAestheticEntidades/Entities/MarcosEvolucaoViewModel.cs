@@ -9,7 +9,7 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("USR_Id")]
-        public UsuariosViewModel Usuario { get; set; }
+        public int Usuario { get; set; }
 
         [Column("MEV_Altura")]
         public double? Altura { get; set; }
@@ -17,7 +17,7 @@ namespace GoAestheticEntidades.Entities
         [Column("MEV_Peso")]
         public double? Peso { get; set; }
 
-        [Column("MEV_CAminhoFoto")]
+        [Column("MEV_CaminhoFoto")]
         public string CaminhoFoto { get; set; }
 
         [Column("MEV_Data")]

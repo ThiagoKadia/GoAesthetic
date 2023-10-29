@@ -1,4 +1,5 @@
 ﻿using GoAestheticEntidades;
+using GoAestheticEntidades.Entities;
 
 namespace GoAestheticApi.Repositories
 {
@@ -11,9 +12,10 @@ namespace GoAestheticApi.Repositories
             _dbContext = dbContext;
         }
 
-        public async ValueTask SalvaPeso() 
+        public async ValueTask SalvaPeso(MarcosEvolucaoViewModel dadosBalanca) 
         {
-
+            await _dbContext.MarcosEvolucaoViewModel.AddAsync(dadosBalanca);
+            _dbContext.SaveChanges();
         }
     }
 }

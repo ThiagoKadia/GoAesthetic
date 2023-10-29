@@ -13,10 +13,12 @@ namespace GoAetheticApi.Controllers
         public ActionResult TacoTableDownload()
         {
             const string archiveType = @"application/pdf";
-            const string path = @"C:\Users\victo\OneDrive\FTT\8º Semestre\API's\TabelaTaco.pdf";
+            const string path = @"TabelaTaco.pdf";
             const string downloadArchiveName = "GoAesthetic_TabelaTaco.pdf";
 
-            var stream = new FileStream(path, FileMode.Open);
+            var fullPath = Path.GetFullPath(path);
+
+            var stream = new FileStream(fullPath, FileMode.Open);
 
             return File(stream, archiveType, downloadArchiveName);
         }

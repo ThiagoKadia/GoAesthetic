@@ -5,12 +5,12 @@ namespace GoAetheticApi.Models.Request
     public class HarrisBenedictRequest
     {
         [Required]
-        public int Age { get; set; }
+        public int Idade { get; set; }
 
         [Required]
-        public double Weight { get; set; }
+        public double Peso { get; set; }
 
         [Required]
-        public double Height { get; set; }
+        public double Altura { get; set; }
     }
 }

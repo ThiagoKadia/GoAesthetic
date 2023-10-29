@@ -1,4 +1,5 @@
-﻿using GoAestheticEntidades;
+﻿using GoAestheticApi.Repositories;
+using GoAestheticEntidades.Entities;
 using GoAestheticNegocio.Constantes;
 using GoAetheticApi.Models.Request;
 using GoAetheticApi.Models.Response;
@@ -12,14 +13,16 @@ namespace GoAetheticApi.Controllers
     [Authorize(Roles = Roles.Balanca)]
     public class BalancaController : ControllerBase
     {
-        private readonly GoAestheticDbContext _dbContext;
-        public BalancaController(GoAestheticDbContext dbContext)
+        private readonly BalancaRepository _balancaRepository;
+        private readonly MarcoEvolucaoRepository _marcoEvolucaoRepository;
+        public BalancaController(BalancaRepository balancaRepository, MarcoEvolucaoRepository marcoEvolucaoRepository)
         {
-            _dbContext = dbContext;
+            _balancaRepository = balancaRepository;
+            _marcoEvolucaoRepository = marcoEvolucaoRepository;
         }
 
         [HttpPost("envia-peso")]
-        public ActionResult EnviaPeso([FromBody] BalancaRequest request)
+        public async ValueTask<ActionResult> EnviaPeso([FromBody] BalancaRequest request)
         {
             if (!ModelState.IsValid)
             {
@@ -31,6 +34,10 @@ namespace GoAetheticApi.Controllers
                 return BadRequest(errorResponse);
             }
 
+            var marcoAtualizado = await AtualizaMarco(request);
+
+            await _balancaRepository.SalvaPeso(marcoAtualizado);
+
             var balanceResponse = new BaseResponse()
             {
                 Codigo = StatusCodes.Status200OK,
@@ -40,9 +47,13 @@ namespace GoAetheticApi.Controllers
             return Ok(balanceResponse);
         }
 
-        private async ValueTask SalvarPeso() 
+        private async ValueTask<MarcosEvolucaoViewModel> AtualizaMarco(BalancaRequest request) 
         {
+            var ultimoMarco = await _marcoEvolucaoRepository.SelectUltimoMarco(request.Usuario);
+            ultimoMarco.Peso = request.Peso;
+            ultimoMarco.DataInclusao = request.Data;
 
+            return ultimoMarco;
         }
 
         private bool ValidateParameters(BalancaRequest request, out BaseResponse errorResponse)
