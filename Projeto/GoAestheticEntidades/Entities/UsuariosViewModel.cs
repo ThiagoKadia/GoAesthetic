@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GoAestheticEntidades.Entities
 {
@@ -13,8 +8,8 @@ namespace GoAestheticEntidades.Entities
         [Column("USR_Id")]
         public int Id { get; set; }
 
-        [Column("RLE_Id")]
-        public int RoleId { get; set; }
+        [Column("AUT_Id")]
+        public int AutorizacaoId { get; set; }
 
         [Column("USR_Nome")]
         public string Nome { get; set; }
@@ -37,11 +32,10 @@ namespace GoAestheticEntidades.Entities
         [Column("USR_Peso")]
         public double? Peso { get; set; }
 
-        [ForeignKey("RoleId")]
-        public virtual RolesViewModel Role { get; set; }
+        [ForeignKey("AutorizacaoId")]
+        public virtual AutorizacaoViewModel Autorizacao { get; set; }
 
         [NotMapped]
         public string NomeRole { get; set; }
-
     }
 }

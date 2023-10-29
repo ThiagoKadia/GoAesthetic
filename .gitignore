@@ -23,3 +23,6 @@
 *.vsidx
 /Projeto/GoAetheticApi/obj
 /Projeto/GoAetheticApi/.vs/GoAetheticApi/v17
+/Projeto/GoAetheticApi/.vs/GoAetheticApi/DesignTimeBuild
+/Projeto/GoAetheticApi/.vs/ProjectEvaluation
+/Projeto/GoAetheticApi/bin/Debug/net6.0
