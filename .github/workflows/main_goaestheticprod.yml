@@ -36,7 +36,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: .net-app
-          path: ${{env.AZURE_WEBAPP_NAME}}/GoAesthetic.sln
+          path: ./Projeto/publish
 
   deploy:
     runs-on: windows-latest
