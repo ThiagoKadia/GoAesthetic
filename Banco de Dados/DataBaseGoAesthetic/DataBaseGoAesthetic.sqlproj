@@ -68,6 +68,7 @@
     <Build Include="tabelas\tbAlimentos.sql" />
     <Build Include="tabelas\tbGrupoAlimentos.sql" />
     <Build Include="tabelas\tbInformacoesAlimentos.sql" />
+    <Build Include="tabelas\tbRoles.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Auxiliares\DataBaseGoAesthetic.refactorlog" />

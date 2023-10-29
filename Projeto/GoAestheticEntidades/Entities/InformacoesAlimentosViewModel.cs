@@ -14,10 +14,10 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("GAL_Id")]
-        public int GrupoAlimentoId { get; set; }
+        public GrupoAlimentoViewModel GrupoAlimento { get; set; }
 
         [Column("IFA_Nome")]
-        public string? Nome { get; set; }
+        public string Nome { get; set; }
 
         [Column("IFA_Energia")]
         public double? Energia { get; set; }
