@@ -20,3 +20,6 @@
 /Banco de Dados/DataBaseGoAesthetic/obj/
 /Banco de Dados/DataBaseGoAesthetic/*.jfm
 /Banco de Dados/DataBaseGoAesthetic/*.dbmdl
+*.vsidx
+/Projeto/GoAetheticApi/obj
+/Projeto/GoAetheticApi/.vs/GoAetheticApi/v17
