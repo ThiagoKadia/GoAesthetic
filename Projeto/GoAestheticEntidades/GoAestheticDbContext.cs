@@ -16,7 +16,7 @@ namespace GoAestheticEntidades
         public DbSet<MarcosEvolucaoViewModel> MarcosEvolucaoViewModel { get; set; }
         public DbSet<RegistroRefeicoesViewModel> RegistroRefeicoesViewModel { get; set; }
         public DbSet<UsuariosViewModel> UsuariosViewModel { get; set; }
-        public DbSet<AutorizacaoViewModel> RolesViewModel { get; set; }
+        public DbSet<AutorizacaoViewModel> AutorizacaoViewModel { get; set; }
         public DbSet<DicionarioViewModel> DicionarioViewModel { get; set; }
     }
 }
