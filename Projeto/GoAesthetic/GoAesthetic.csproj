@@ -17,8 +17,4 @@
     <ProjectReference Include="..\GoAestheticNegocio\GoAestheticNegocio.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Login\" />
-  </ItemGroup>
-
 </Project>
