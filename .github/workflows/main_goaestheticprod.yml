@@ -5,7 +5,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - GoAestheticProd
 
 env:
   AZURE_WEBAPP_NAME: GoAestheticProd  # set this to the name of your Azure Web App
-  DOTNET_ROOT: Projeto\GoAesthetic
+  DOTNET_ROOT: ./Projeto/publish
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
         run: dotnet build --configuration Release ./Projeto/GoAesthetic/GoAesthetic.sln
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/publish GoAesthetic/GoAesthetic.sln
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
