@@ -30,7 +30,7 @@ jobs:
         run: dotnet build --configuration Release ./Projeto/GoAesthetic/GoAesthetic.sln
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}
+        run: dotnet publish -c Release -o ./Projeto/GoAesthetic/GoAesthetic.sln
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
