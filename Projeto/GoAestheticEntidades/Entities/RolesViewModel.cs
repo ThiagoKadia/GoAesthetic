@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace GoAestheticEntidades.Entities
 {
-    [Table("tbGrupoAlimentos")]
-    public class GrupoAlimentoViewModel
+    [Table("tbRoles")]
+    public class RolesViewModel
     {
-        [Column("GAL_Id")]
+        [Column("RLE_Id")]
         public int Id { get; set; }
 
-        [Column("GAL_Nome")]
+        [Column("RLE_Nome")]
         public string Nome { get; set; }
     }
 }

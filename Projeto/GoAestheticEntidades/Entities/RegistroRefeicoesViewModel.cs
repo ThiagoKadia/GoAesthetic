@@ -14,10 +14,10 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("USR_Id")]
-        public int UsuarioId { get; set; }
+        public UsuariosViewModel? Usuario { get; set; }
 
         [Column("RRF_Nome")]
-        public string? Nome { get; set; }
+        public string Nome { get; set; }
 
         [Column("RRF_Data")]
         public DateTime? DataInclusao { get; set; }

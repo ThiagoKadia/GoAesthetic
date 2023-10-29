@@ -1,14 +1,19 @@
 ﻿using GoAestheticEntidades;
+using GoAestheticEntidades.Entities;
 using GoAestheticNegocio;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System.Security.Claims;
 
 namespace GoAesthetic.Controllers.ControllersBase
 {
+    [Authorize(Policy = "RequirimentoMinimoAcesso")]
     public class BaseController : Controller
     {
         protected GoAestheticDbContext Contexto;
-        protected int IdUsuarioLogado { get; set; }
         private bool SideBar { get; set; }
         public BaseController(GoAestheticDbContext context)
         {
@@ -22,19 +27,24 @@ namespace GoAesthetic.Controllers.ControllersBase
             Contexto = context;
         }
 
-        protected bool VerificaUsuarioLogado()
+        protected async void RealizaLoginUsuario(UsuariosViewModel Usuario)
         {
-            bool estaLogado = HttpContext.Session.TryGetValue(Constantes.ChaveSessionUsuario, out byte[]? usuario);
+            var claims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.NameIdentifier, Usuario.Id.ToString()),
+                new Claim(ClaimTypes.Name, Usuario.Nome),
+                new Claim(ClaimTypes.Role, Usuario.NomeRole),
+                new Claim("GoAesthetic", "Code")
+            };
 
-            if (estaLogado)
-                IdUsuarioLogado =  BitConverter.ToInt32(usuario);
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal,
+                new AuthenticationProperties()
+                {
+                    IsPersistent = true,
+                });
 
-            return estaLogado;
-        }
-
-        protected void RealizaLoginUsuario(int idUsuario)
-        {
-            HttpContext.Session.Set(Constantes.ChaveSessionUsuario, BitConverter.GetBytes(idUsuario));
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)

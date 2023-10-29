@@ -13,14 +13,17 @@ namespace GoAestheticEntidades.Entities
         [Column("USR_Id")]
         public int Id { get; set; }
 
+        [Column("RLE_Id")]
+        public int RoleId { get; set; }
+
         [Column("USR_Nome")]
-        public string? Nome { get; set; }
+        public string Nome { get; set; }
 
         [Column("USR_Email")]
-        public string? Email { get; set; }
+        public string Email { get; set; }
 
         [Column("USR_Senha")]
-        public string? Senha { get; set; }
+        public string Senha { get; set; }
 
         [Column("USR_Idade")]
         public int? Idade { get; set; }
@@ -33,6 +36,12 @@ namespace GoAestheticEntidades.Entities
 
         [Column("USR_Peso")]
         public double? Peso { get; set; }
+
+        [ForeignKey("RoleId")]
+        public virtual RolesViewModel Role { get; set; }
+
+        [NotMapped]
+        public string NomeRole { get; set; }
 
     }
 }

@@ -1,5 +1,7 @@
 using GoAestheticEntidades;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,12 +18,32 @@ builder.Services.AddDistributedMemoryCache();
 // Configure session options
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(10);
+    options.IdleTimeout = TimeSpan.FromMinutes(20);
 });
+
 
 builder.Services.AddMvc();
 
 builder.Services.AddControllers();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        options.LoginPath = "/Login";
+        options.SlidingExpiration = true;
+        options.AccessDeniedPath = "/Login";
+        options.LogoutPath = "/Login";
+        options.Cookie.Name = "GoAestheticCookie";
+    });
+
+builder.Services.AddAuthorization(options =>
+{
+    string[] roles = new string[] { "user", "admin" };
+
+    options.AddPolicy("RequirimentoMinimoAcesso",
+    policy => policy.RequireRole(roles));
+});
 
 var app = builder.Build();
 
@@ -38,7 +60,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseSession();
+
+app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseCookiePolicy();
 
 app.MapControllerRoute(
     name: "default",

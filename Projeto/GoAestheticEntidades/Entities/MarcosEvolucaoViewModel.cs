@@ -14,7 +14,7 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("USR_Id")]
-        public int UsuarioId { get; set; }
+        public UsuariosViewModel Usuario { get; set; }
 
         [Column("MEV_Altura")]
         public double? Altura { get; set; }
@@ -23,7 +23,7 @@ namespace GoAestheticEntidades.Entities
         public double? Peso { get; set; }
 
         [Column("MEV_CAminhoFoto")]
-        public string? CaminhoFoto { get; set; }
+        public string CaminhoFoto { get; set; }
 
         [Column("MEV_Data")]
         public DateTime? DataInclusao { get; set; }
