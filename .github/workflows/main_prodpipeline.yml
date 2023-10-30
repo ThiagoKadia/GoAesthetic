@@ -26,11 +26,17 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
 
-      - name: Build with dotnet
+      - name: Build webapp with dotnet
         run: dotnet build --configuration Release ./Projeto/GoAesthetic/GoAesthetic.sln
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ./Projeto/publish ./Projeto/GoAesthetic/GoAesthetic.sln
+      - name: dotnet publish webapp
+        run: dotnet publish -c Release -o ./Projeto/publish/website ./Projeto/GoAesthetic/GoAesthetic.sln
+
+      - name: Build api with dotnet
+        run: dotnet build --configuration Release ./Projeto/GoAetheticApi/GoAetheticApi.sln
+
+      - name: dotnet publish api
+        run: dotnet publish -c Release -o ./Projeto/publish/api ./Projeto/GoAetheticApi/GoAetheticApi.sln
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -58,4 +64,13 @@ jobs:
           app-name: 'GoAestheticProd'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FB2C83DF52BD4D2BB0F47B568966089F }}
-          package: .
+          package: ./website
+
+      - name: Deploy to Azure API
+        id: deploy-to-api
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'GoAestheticAPIProd'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_85093E4448D04C239A8ED9BC1F04EF99 }}
+          package: ./api
