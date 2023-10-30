@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoAetheticApi", "GoAetheticApi.csproj", "{51053315-622A-4DA7-8FA6-FCDD57ECBB57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoAestheticApi", "GoAestheticApi.csproj", "{51053315-622A-4DA7-8FA6-FCDD57ECBB57}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoAestheticNegocio", "..\GoAestheticNegocio\GoAestheticNegocio.csproj", "{C4CFFAFC-159C-4FDD-880B-748F4FF536BF}"
 EndProject
