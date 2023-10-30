@@ -2,13 +2,12 @@
 
 namespace GoAesthetic.Controllers
 {
-    public class CadastroController : Controller
+    public class ConfiguracoesController : Controller
     {
         public IActionResult Index()
         {
-            ViewBag.SideBar = false;
+            ViewBag.SideBar = true;
             return View();
         }
     }
 }
-
