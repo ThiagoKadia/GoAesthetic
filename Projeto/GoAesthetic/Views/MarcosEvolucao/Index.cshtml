@@ -1,0 +1,21 @@
+﻿@model GoAestheticEntidades.Entities.MarcosEvolucaoViewModel
+
+@using (Html.BeginForm("Edit", "MarcosEvolucao", method: FormMethod.Post, htmlAttributes: new { enctype = "Multipart/Form-Data" }))
+{
+    <input asp-for="Arquivo" type="file">
+
+
+    <img id="imgPreview" src="data:image/jpeg;base64,@Model.ArquivoBase64" class="img-responsive"
+     width="300">
+    <input type="submit" value="Submit">
+}
+
+<script>
+    function exibirImagem() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("Arquivo").files[0]);
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("imgPreview").src = oFREvent.target.result;
+        };
+    }
+</script>

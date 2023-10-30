@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GoAestheticEntidades.Entities
 {
@@ -9,7 +10,7 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("USR_Id")]
-        public UsuariosViewModel Usuario { get; set; }
+        public int Usuario { get; set; }
 
         [Column("MEV_Altura")]
         public double? Altura { get; set; }
@@ -18,9 +19,15 @@ namespace GoAestheticEntidades.Entities
         public double? Peso { get; set; }
 
         [Column("MEV_CAminhoFoto")]
-        public string CaminhoFoto { get; set; }
+        public string? CaminhoFoto { get; set; }
 
         [Column("MEV_Data")]
         public DateTime? DataInclusao { get; set; }
+
+        [NotMapped]
+        public IFormFile Arquivo { get; set; }
+
+        [NotMapped]
+        public string ArquivoBase64 { get; set; }
     }
 }
