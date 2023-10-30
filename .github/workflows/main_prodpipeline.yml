@@ -1,11 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - GoAestheticProd
-
-env:
-  AZURE_WEBAPP_NAME: GoAestheticProd  # set this to the name of your Azure Web App
-  DOTNET_ROOT: ./Projeto/publish
+name: Build and deploy GoAesthetic on Azure
 
 on:
   push:
@@ -61,16 +57,16 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'GoAestheticProd'
+          app-name: ${{secrets.WEBSITENAME}}
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FB2C83DF52BD4D2BB0F47B568966089F }}
+          publish-profile: ${{ secrets.WEBAPPSECRET }}
           package: ./website
 
       - name: Deploy to Azure API
         id: deploy-to-api
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'GoAestheticAPIProd'
+          app-name: ${{secrets.APINAME}}
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_85093E4448D04C239A8ED9BC1F04EF99 }}
+          publish-profile: ${{ secrets.APISECRET }}
           package: ./api
