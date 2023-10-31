@@ -59,9 +59,7 @@ form [type="submit"] {
     cursor: pointer;
 }
 
-p {
-    color: #F9F5EC;
-}
+
 
 
 select {
@@ -80,4 +78,10 @@ select {
     color: #F9F5EC;
     display: inline;
     cursor: pointer;
+}
+
+border{
+    background: transparent;
+    background-color: transparent;
+    color: transparent;
 }
