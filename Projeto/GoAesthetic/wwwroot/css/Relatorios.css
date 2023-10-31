@@ -1,5 +1,8 @@
-* {
+﻿* {
     box-sizing: border-box;
+}
+
+a {
     text-decoration: none;
     color: #F9F5EC
 }
@@ -8,7 +11,7 @@ body {
     margin: 0;
     font-family: sans-serif;
     background-color: #181920;
-    align-items: center;
+    color: #F9F5EC;
 }
 
 
@@ -35,7 +38,7 @@ body {
 }
 
     .logo:hover {
-        transform: scale(1.5);
+        transform: scale(2);
     }
 
 .sidebar button {
@@ -43,6 +46,7 @@ body {
     background: transparent;
     border: 0;
     font-family: sans-serif;
+    color: inherit;
     cursor: pointer;
     text-align: left;
     padding: 0;
@@ -72,13 +76,6 @@ body {
     width: 100%;
 }
 
-.main {
-    margin-left: 125px;
-    margin-right: 6px;
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
-}
 
 @media (width < 920px) {
     .sidebar {
@@ -99,12 +96,86 @@ body {
         margin-left: 78px;
     }
 }
-.sidebar button {
-    height: 60px;
-    background: transparent;
-    border: 0;
-    font-family: sans-serif;
+
+.relatorio {
+    margin: 10px 40px;
+}
+
+    .relatorio > input {
+        margin: 40px 40px;
+    }
+
+    .relatorio input {
+        margin-top: 100px;
+        background-color: #252A34;
+        color: #F9F5EC;
+        padding-left: 10px;
+        border: none;
+        height: 45px;
+        outline: none;
+        border-radius: 8px;
+        ;
+        gap: 40px;
+    }
+
+.input-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.relatorio [type="submit"] {
+    float: right;
+    background-color: #006400;
+    font-size: 15PX;
+    text-transform: uppercase;
+    font-weight: bold;
     cursor: pointer;
-    text-align: left;
-    padding: 0;
+    color: #F9F5EC;
+    height: 45px;
+    outline: none;
+    border-radius: 8px;
+}
+
+select {
+    margin-top: 10px;
+    background-color: #252A34;
+    color: #F9F5EC;
+    padding-left: 10px;
+    border: none;
+    height: 45px;
+    outline: none;
+    border-radius: 8px;
+}
+
+.tabela {
+    margin-top: 20px;
+    overflow-x: auto; /* Adiciona rolagem horizontal quando necessário */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #2f3336;
+    background-color: #252A34;
+}
+
+th, td {
+    border: 1px solid #2f3336;
+    padding: 10px;
+    text-align: center;
+    color: #F9F5EC;
+}
+
+th {
+    background-color: #006400;
+    font-weight: bold;
+}
+
+/* Estilização para células de dados alternadas */
+tr:nth-child(even) {
+    background-color: #363C47;
+}
+
+/* Estilização para células de dados ao passar o mouse */
+tr:hover {
+    background-color: #454F5B;
 }
