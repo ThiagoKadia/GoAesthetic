@@ -16,7 +16,8 @@
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7008;http://localhost:5092",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DbConnectionString": "Server=DUNOTEBOOK\\SQLEDUARDO;Database=GoAestethic;User Id=sa;Password=1camisa*;TrustServerCertificate=True;"
       }
     },
     "IIS Express": {

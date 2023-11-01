@@ -18,8 +18,12 @@ namespace GoAesthetic.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            ViewBag.SideBar = false;
-            return View();
+            var conexao = Contexto.Database.CanConnect();
+
+            if (conexao)
+                return View();
+            else
+                throw new Exception();
         }
 
         [HttpPost]

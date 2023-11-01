@@ -3,12 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using GoAestheticNegocio.Constantes;
+using GoAestheticNegocio.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<GoAestheticDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("GoAestheticDBLocal"));
+    options.UseSqlServer(EnvironmentHelper.BuscaStringConexaoDb().Result);
 });
 
 
