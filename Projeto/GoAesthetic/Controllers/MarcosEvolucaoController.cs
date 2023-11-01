@@ -15,26 +15,17 @@ namespace GoAesthetic.Controllers
 
         public async Task<IActionResult> Index()
         {
-            try
+            var marcoEvolucao = await Contexto.MarcosEvolucaoViewModel.FirstOrDefaultAsync();
+
+            var storare = new StorageHelper();
+
+            using (MemoryStream ms = await storare.DownloadImagem("Pedra.jpg"))
             {
-                var marcoEvolucao = await Contexto.MarcosEvolucaoViewModel.FirstOrDefaultAsync();
-
-                var storare = new StorageHelper();
-
-                using (MemoryStream ms = await storare.DownloadImagem("Pedra.jpg"))
-                {
-                    var fileBytes = ms.ToArray();
-                    marcoEvolucao.ArquivoBase64 = Convert.ToBase64String(fileBytes);
-                }
-
-                return View(marcoEvolucao);
-            }
-            catch (Exception ex)
-            {
-                ViewBag.erro = ex.ToString();
-                return View(new MarcosEvolucaoViewModel());
+                var fileBytes = ms.ToArray();
+                marcoEvolucao.ArquivoBase64 = Convert.ToBase64String(fileBytes);
             }
 
+            return View(marcoEvolucao);
         }
 
         [HttpPost]
