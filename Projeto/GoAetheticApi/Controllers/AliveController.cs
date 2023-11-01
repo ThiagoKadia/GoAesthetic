@@ -1,4 +1,5 @@
-﻿using GoAetheticApi.Models.Response;
+﻿using GoAestheticEntidades;
+using GoAetheticApi.Models.Response;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoAestheticApi.Controllers
@@ -7,15 +8,36 @@ namespace GoAestheticApi.Controllers
     [ApiController]
     public class AliveController : ControllerBase
     {
+        GoAestheticDbContext Contexto;
+
+        public AliveController(GoAestheticDbContext dbContext)
+        {
+            Contexto = dbContext;
+        }
+
 
         [HttpGet]
         public ActionResult EstouVivo()
         {
-            return Ok(new BaseResponse()
+            var conexao = Contexto.Database.CanConnect();
+
+            if(conexao)
             {
-                Codigo = StatusCodes.Status200OK,
-                Mensagem = "Estou Vivo"
-            });
+                return Ok(new BaseResponse()
+                {
+                    Codigo = StatusCodes.Status200OK,
+                    Mensagem = "Estou Vivo"
+                });
+            }
+            else
+            {
+                return StatusCode(500, new BaseResponse()
+                {
+                    Codigo = StatusCodes.Status500InternalServerError,
+                    Mensagem = "Falha ao conectar ao banco"
+                });
+            }
+
         }
     }
 }
