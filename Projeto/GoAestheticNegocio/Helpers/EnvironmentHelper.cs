@@ -38,7 +38,24 @@ namespace GoAestheticNegocio.Helpers
             }
 
             return conexao;
-            
+        }
+
+        public static async Task<string> BuscaStringConexaoStorage()
+        {
+            string conexao = string.Empty;
+            try
+            {
+                SecretClient secretclient;
+                secretclient = new SecretClient(new Uri("https://goaesthetic.vault.azure.net"), new DefaultAzureCredential());
+                var secret = await secretclient.GetSecretAsync("stringConexaoStorage");
+                conexao = secret.Value.Value;
+            }
+            catch (Exception ex)
+            {
+                conexao = String.Empty;
+            }
+
+            return conexao;
         }
 
     }

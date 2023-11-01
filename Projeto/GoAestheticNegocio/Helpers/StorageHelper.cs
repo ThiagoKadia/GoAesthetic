@@ -16,9 +16,7 @@ namespace GoAestheticNegocio.Helpers
 
         public StorageHelper()
         {
-            BlobServiceClient conexaoBlob = new BlobServiceClient(
-                            new Uri(Conexoes.Storage),
-                            new DefaultAzureCredential());
+            BlobServiceClient conexaoBlob = new BlobServiceClient(EnvironmentHelper.BuscaStringConexaoStorage().Result);
 
             conexaoBlobConteiner = conexaoBlob.GetBlobContainerClient(Conexoes.ConteinerPadrao);
         }
