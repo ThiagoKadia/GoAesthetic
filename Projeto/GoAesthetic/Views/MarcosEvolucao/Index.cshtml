@@ -1,7 +1,7 @@
 ﻿@model GoAestheticEntidades.Entities.MarcosEvolucaoViewModel
 
 
-@if(ViewBag.erro != null)
+@if (ViewBag.erro != null)
 {
     <h3>@ViewBag.erro</h3>
 }
@@ -10,8 +10,13 @@
     <input asp-for="Arquivo" type="file">
 
 
-    <img id="imgPreview" src="data:image/jpeg;base64,@Model.ArquivoBase64" class="img-responsive"
-     width="300">
+    <img id="imgPreview" src="@ViewBag.urlImagem" class="img-responsive" width="300">
+    <img id="imgPreview" src="@ViewBag.urlImagem2" class="img-responsive" width="300">
+    <img id="imgPreview" src="@ViewBag.urlImagem3" class="img-responsive" width="300">
+    <br />
+    <br />
+    <br />
+    <br />
     <input type="submit" value="Submit">
 }
 

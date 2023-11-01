@@ -154,4 +154,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="IFA_Id" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="e761df3b-5c54-485e-808e-f949913461ac" ChangeDateTime="11/01/2023 22:37:22">
+    <Property Name="ElementName" Value="[dbo].[tbLog].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbLog]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LOG_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2d0943d5-07be-434b-9e79-01f0d162861f" ChangeDateTime="11/01/2023 23:02:51">
+    <Property Name="ElementName" Value="[dbo].[tbMarcosEvolucao].[MEV_CaminhoFoto]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbMarcosEvolucao]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NomeArquivoFoto" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5c92ee5b-c320-4e73-b618-7c505e4a13e7" ChangeDateTime="11/01/2023 23:06:22">
+    <Property Name="ElementName" Value="[dbo].[tbMarcosEvolucao].[NomeArquivoFoto]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbMarcosEvolucao]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MEV_NomeArquivoFoto" />
+  </Operation>
 </Operations>
