@@ -19,7 +19,7 @@ namespace GoAestheticEntidades.Entities
         public double? Peso { get; set; }
 
         [Column("MEV_CaminhoFoto")]
-        public string CaminhoFoto { get; set; }
+        public string? CaminhoFoto { get; set; }
 
         [Column("MEV_Data")]
         public DateTime? DataInclusao { get; set; }
