@@ -2,26 +2,32 @@
 
 <!DOCTYPE html>
 <head>
-        <meta charset = "UTF-8">
-        <link rel="stylesheet" href="css/Login.css">
-        <title> Login </title>
+    <link rel="stylesheet" href="~/css/Login.css">
+    <meta charset="UTF-8">
+    <title> Login </title>
 </head>
 <body>
-    <section class = "area-login">
-      <div class="login">
-        
-        <div>
-          <img src="img/logo.png">
+    <section class="area-login">
+        <div class="login">
+
+            <div>
+                <img src="img/logo.png">
+            </div>
+
+            <form asp-controller="Login" asp-action="Edit" id="login-form">
+                <input asp-for="Email" type="text" name="email" placeholder="Email" autofocus>
+                <input asp-for="Senha" type="password" name="senha" placeholder="Senha">
+                <span class"lnr-eye"></span>
+                <input type="submit" value="entrar">
+            </form>
+            <p>Não tem cadastro? <a href="Cadastro">Criar um conta</a></p>
+            
         </div>
 
-        <form  asp-controller="Login" asp-action="Edit">
-          <input asp-for="Email" type ="text" name ="email" placeholder = "Email" autofocus>
-          <input asp-for="Senha" type ="password" name ="senha" placeholder = "Senha">
-          <span class"lnr-eye"></span>
-          <input type="submit" value = "entrar">
-      </form>
-      <p>Não tem cadastro? <a href="Cadastro.html">Criar um conta</a></p>
-      </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+        <script src="~/js/login.js"></script>
+
     </section>
 </body>
 

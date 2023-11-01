@@ -1,0 +1,101 @@
+﻿.registro {
+    margin: 10px 40px;
+}
+
+    .registro > input {
+        margin: 40px 40px;
+    }
+
+.redistro input {
+    margin-top: 100px;
+    background-color: #252A34;
+    color: #F9F5EC;
+    padding-left: 10px;
+    border: none;
+    height: 45px;
+    outline: none;
+    border-radius: 8px;
+    ;
+    gap: 40px;
+}
+
+.registro {
+    margin: 10px 40px;
+}
+
+    .registro h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .registro form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .registro label {
+        margin-top: 10px;
+    }
+
+    .registro input[type="date"],
+    .registro input[type="text"],
+    .registro input[type="number"] {
+        background-color: #252A34;
+        color: #F9F5EC;
+        padding-left: 10px;
+        border: none;
+        height: 45px;
+        outline: none;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+
+    .registro h2 {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
+    .registro button {
+        background-color: #006400;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        color: #F9F5EC;
+        height: 45px;
+        outline: none;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+.tabela {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #2f3336;
+    background-color: #252A34;
+}
+
+th, td {
+    border: 1px solid #2f3336;
+    padding: 10px;
+    text-align: center;
+    color: #F9F5EC;
+}
+
+th {
+    background-color: #006400;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #363C47;
+}
+
+tr:hover {
+    background-color: #454F5B;
+}

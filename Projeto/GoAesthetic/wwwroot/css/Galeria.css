@@ -1,0 +1,63 @@
+﻿div.gallery {
+    margin-top: 100px;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}
+
+    div.gallery:hover {
+        border: 1px solid #777;
+    }
+
+    div.gallery img {
+        width: 100%;
+        height: 300px;
+    }
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+
+.enviar {
+    font-family: inherit;
+    cursor: pointer;
+    float: right;
+    align-items: self-end;
+    height: 40px;
+    padding: 0 16px 0 12px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-right: 15px;
+    overflow: hidden;
+    background-color: #006400;
+    color: #F9F5EC;
+}
+
+.main {
+    margin-left: 250px;
+    margin-right: 6px;
+    overflow: hidden;
+}
+
+@media (width < 920px) {
+    .sidebar {
+        width: 72px;
+    }
+
+        .sidebar button > span {
+            width: 50px;
+        }
+
+            .sidebar button > span > span {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+    .main {
+        transition: margin 0.4s;
+        margin-left: 78px;
+    }
+}
