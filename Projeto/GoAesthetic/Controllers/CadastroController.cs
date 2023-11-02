@@ -107,7 +107,7 @@ namespace GoAesthetic.Controllers
                 resposta.Dados.Add(new Erros { Id = "Altura", Erro = "Digite uma altura" });
                 valida = false;
             }
-            else if (usuario.Altura.Value > 3 || usuario.Altura.Value < 0.5)
+            else if (usuario.Altura.Value > 300 || usuario.Altura.Value < 50)
             {
                 resposta.Dados.Add(new Erros { Id = "Altura", Erro = "Digite uma altura valida" });
                 valida = false;
