@@ -15,10 +15,14 @@ namespace GoAetheticApi.Controllers
     {
         private readonly BalancaRepository _balancaRepository;
         private readonly MarcoEvolucaoRepository _marcoEvolucaoRepository;
-        public BalancaController(BalancaRepository balancaRepository, MarcoEvolucaoRepository marcoEvolucaoRepository)
+        private readonly UsuarioRepository _usuarioRepository;
+        private readonly LogRepository _logRepository;
+        public BalancaController(BalancaRepository balancaRepository, MarcoEvolucaoRepository marcoEvolucaoRepository, UsuarioRepository usuarioRepository, LogRepository logRepository)
         {
             _balancaRepository = balancaRepository;
             _marcoEvolucaoRepository = marcoEvolucaoRepository;
+            _usuarioRepository = usuarioRepository;
+            _logRepository = logRepository;
         }
 
         [HttpPost("envia-peso")]
@@ -36,6 +40,15 @@ namespace GoAetheticApi.Controllers
 
             var marcoAtualizado = await AtualizaMarco(request);
 
+            if (marcoAtualizado == null)
+            {
+                return NotFound(new BaseResponse()
+                {
+                    Codigo = StatusCodes.Status404NotFound,
+                    Mensagem = "Usuario não encontrado"
+                });
+            }
+
             await _balancaRepository.SalvaPeso(marcoAtualizado);
 
             var balanceResponse = new BaseResponse()
@@ -47,13 +60,29 @@ namespace GoAetheticApi.Controllers
             return Ok(balanceResponse);
         }
 
-        private async ValueTask<MarcosEvolucaoViewModel> AtualizaMarco(BalancaRequest request) 
+        private async ValueTask<MarcosEvolucaoViewModel> AtualizaMarco(BalancaRequest request)
         {
-            var ultimoMarco = await _marcoEvolucaoRepository.SelectUltimoMarco(request.Usuario);
-            ultimoMarco.Peso = request.Peso;
-            ultimoMarco.DataInclusao = request.Data;
+            try
+            {
+                var idUsuario = await _usuarioRepository.GetIdPorNomeDeUsuario(request.Usuario);
+                var ultimoMarco = await _marcoEvolucaoRepository.SelectUltimoMarco(idUsuario);
+                ultimoMarco.Peso = request.Peso;
+                ultimoMarco.DataInclusao = request.Data;
 
-            return ultimoMarco;
+                return ultimoMarco;
+
+            }
+            catch (Exception ex)
+            {
+
+                await _logRepository.InsereLog(new LogViewModel()
+                {
+                    Data = DateTime.Now,
+                    Erro = ex.Message,
+                    StackTrace = ex.StackTrace
+                });
+                return null;
+            }
         }
 
         private bool ValidateParameters(BalancaRequest request, out BaseResponse errorResponse)

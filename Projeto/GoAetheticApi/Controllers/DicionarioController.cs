@@ -1,9 +1,9 @@
-﻿using GoAestheticEntidades;
+﻿using GoAestheticApi.Repositories;
 using GoAestheticComuns.Constantes;
+using GoAestheticEntidades.Entities;
 using GoAetheticApi.Models.Response;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GoAetheticApi.Controllers
 {
@@ -12,10 +12,13 @@ namespace GoAetheticApi.Controllers
     [Authorize(Roles = Roles.Sistema)]
     public class DicionarioController : ControllerBase
     {
-        private GoAestheticDbContext _dbContext;
-        public DicionarioController(GoAestheticDbContext dbContext)
+        private readonly LogRepository _logRepository;
+        private DicionarioRepository _dicionarioRepository;
+
+        public DicionarioController(DicionarioRepository dicionarioRepository, LogRepository logRepository)
         {
-            _dbContext = dbContext;
+            _dicionarioRepository = dicionarioRepository;
+            _logRepository = logRepository;
         }
 
         [HttpGet]
@@ -23,9 +26,9 @@ namespace GoAetheticApi.Controllers
         {
             try
             {
-                var palavra = await _dbContext.DicionarioViewModel.FirstOrDefaultAsync(x => x.Chave.Equals(chave));
+                var palavra = await _dicionarioRepository.GetSignificado(chave);
 
-                if (string.IsNullOrEmpty(palavra.Valor))
+                if (string.IsNullOrEmpty(palavra))
                 {
                     return NotFound(new BaseResponse()
                     {
@@ -38,11 +41,18 @@ namespace GoAetheticApi.Controllers
                 {
                     Codigo = StatusCodes.Status200OK,
                     Mensagem = "Sucesso",
-                    Palavra = palavra.Valor
+                    Palavra = palavra
                 });
             }
             catch (Exception ex)
             {
+                await _logRepository.InsereLog(new LogViewModel()
+                {
+                    Data = DateTime.Now,
+                    Erro = ex.Message,
+                    StackTrace = ex.StackTrace
+                });
+
                 return BadRequest(new BaseResponse()
                 {
                     Codigo = StatusCodes.Status400BadRequest,
