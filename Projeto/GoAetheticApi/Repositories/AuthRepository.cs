@@ -1,5 +1,6 @@
 ﻿using GoAestheticEntidades;
 using GoAestheticEntidades.Entities;
+using GoAestheticNegocio.Helpers;
 using GoAetheticApi.Models.Request;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,10 +15,11 @@ namespace GoAestheticApi.Repositories
             _dbContext = dbContext;
         }
 
-        public async ValueTask<AutorizacaoViewModel> SelectUser(AuthRequest user) 
+        public async ValueTask<AutorizacaoViewModel> SelectUser(AuthRequest user)
         {
-           return await _dbContext.AutorizacaoViewModel.FirstOrDefaultAsync(x => x.Usuario.ToLower().Equals(user.Usuario) &&
-                                                                        x.Senha.ToLower().Equals(user.Senha));
-        }   
+            string hashSenha = CriptografiaHelper.CriaHashSenha(user.Senha);
+            return await _dbContext.AutorizacaoViewModel.FirstAsync(x => x.Usuario.ToLower().Equals(user.Usuario) &&
+                                                                         x.Senha == hashSenha);
+        }
     }
 }

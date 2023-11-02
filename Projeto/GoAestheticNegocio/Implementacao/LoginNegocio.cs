@@ -10,7 +10,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-
+using GoAestheticNegocio.Helpers;
 
 namespace GoAestheticNegocio.Implementacao
 {
@@ -22,7 +22,7 @@ namespace GoAestheticNegocio.Implementacao
 
         public async Task<UsuariosViewModel?> VerificaLoginCorreto(string email, string senha)
         {
-            string hashSenha = CriaHashSenha(senha);
+            string hashSenha = CriptografiaHelper.CriaHashSenha(senha);
             return await Contexto.UsuariosViewModel.Where(x => x.Email == email && x.Senha == hashSenha)
                                                                 .Select(u => new UsuariosViewModel()
                                                                 {
@@ -38,7 +38,7 @@ namespace GoAestheticNegocio.Implementacao
         {
             using var transaction = Contexto.Database.BeginTransaction();
             {
-                usuario.Senha = CriaHashSenha(usuario.Senha);
+                usuario.Senha = CriptografiaHelper.CriaHashSenha(usuario.Senha);
                 usuario.AutorizacaoId = await Contexto.AutorizacaoViewModel.Where(x => x.Role == Roles.Usuario)
                                                                            .Select(a => a.Id)
                                                                            .FirstAsync();
@@ -62,19 +62,6 @@ namespace GoAestheticNegocio.Implementacao
                 transaction.Commit();
             }
             return usuario;
-        }
-
-        private string CriaHashSenha(string senha)
-        {
-            byte[] salt = Encoding.ASCII.GetBytes("CriptografiaGoAesthetic");
-
-            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                                                   password: senha,
-                                                   salt: salt,
-                                                   prf: KeyDerivationPrf.HMACSHA256,
-                                                   iterationCount: 100000,
-                                                   numBytesRequested: 256 / 8));
-            return hashed;
         }
     }
 }
