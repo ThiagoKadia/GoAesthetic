@@ -10,17 +10,30 @@ document.addEventListener('DOMContentLoaded', function () {
             Swal.fire({
                 icon: 'success',
                 title: 'Login realizado',
-                text: 'Voce foi autenticado com sucesso!',
+                text: 'Você foi autenticado com sucesso!',
+                customClass: {
+                    popup: 'swal-custom-popup',
+                    content: 'swal-custom-text'
+                },
+                onOpen: function () {
+                    // Aplicar a cor preta diretamente no texto
+                    document.querySelector('.swal-custom-text').style.color = 'black';
+                }
             });
-        }
-        else {
+        } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Senha Incorreta!',
                 text: 'Insira a senha cadastrada e tente novamente!',
+                customClass: {
+                    popup: 'swal-custom-popup',
+                    content: 'swal-custom-text'
+                },
+                onOpen: function () {
+                    // Aplicar a cor preta diretamente no texto
+                    document.querySelector('.swal-custom-text').style.color = 'black';
+                }
             });
         }
-
-
     });
 });

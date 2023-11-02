@@ -11,9 +11,6 @@
                 icon: 'error',
                 title: 'ERRO!',
                 text: 'Um erro inesperado ocorreu, entre em contato com os administradores do sistema.',
-                customClass: {
-                    popup: 'black-background', // Aplica a classe CSS personalizada ao modal
-                },
             });
         }
 
