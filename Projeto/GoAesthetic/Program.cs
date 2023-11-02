@@ -2,13 +2,14 @@ using GoAestheticEntidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using GoAestheticNegocio.Constantes;
+using GoAestheticComuns.Constantes;
+using GoAestheticNegocio.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<GoAestheticDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("GoAestheticDBLocal"));
+    options.UseSqlServer(EnvironmentHelper.BuscaStringConexaoDb().Result);
 });
 
 
@@ -32,9 +33,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
         options.LoginPath = "/Login";
-        options.SlidingExpiration = true;
-        options.AccessDeniedPath = "/Login";
         options.LogoutPath = "/Login";
+        options.SlidingExpiration = true;
+        options.AccessDeniedPath = "/AcessoNegado";
         options.Cookie.Name = "GoAestheticCookie";
     });
 
@@ -49,10 +50,10 @@ builder.Services.AddAuthorization(options =>
 var app = builder.Build();
 
 
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    
     app.UseHsts();
 }
 

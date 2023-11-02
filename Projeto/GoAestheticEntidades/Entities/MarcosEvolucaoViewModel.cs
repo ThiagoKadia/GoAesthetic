@@ -18,16 +18,13 @@ namespace GoAestheticEntidades.Entities
         [Column("MEV_Peso")]
         public double? Peso { get; set; }
 
-        [Column("MEV_CaminhoFoto")]
-        public string CaminhoFoto { get; set; }
+        [Column("MEV_NomeArquivoFoto")]
+        public string? NomeArquivoFoto { get; set; }
 
         [Column("MEV_Data")]
         public DateTime? DataInclusao { get; set; }
 
         [NotMapped]
         public IFormFile Arquivo { get; set; }
-
-        [NotMapped]
-        public string ArquivoBase64 { get; set; }
     }
 }

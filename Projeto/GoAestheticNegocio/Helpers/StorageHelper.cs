@@ -1,7 +1,8 @@
 ﻿using Azure.Identity;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Specialized;
-using GoAestheticNegocio.Constantes;
+using Azure.Storage.Sas;
+using GoAestheticComuns.Constantes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,67 +12,53 @@ using System.Threading.Tasks;
 namespace GoAestheticNegocio.Helpers
 {
     public class StorageHelper
-    {       
-        BlobContainerClient conexaoBlobConteiner;
+    {
+        BlobContainerClient ConexaoBlobConteiner;
 
         public StorageHelper()
         {
-            BlobServiceClient conexaoBlob = new BlobServiceClient(
-                            new Uri(Conexoes.Storage),
-                            new DefaultAzureCredential());
-
-            conexaoBlobConteiner = conexaoBlob.GetBlobContainerClient(Conexoes.ConteinerPadrao);
+            BlobServiceClient conexaoBlob = new BlobServiceClient(EnvironmentHelper.BuscaStringConexaoStorage().Result);
+            ConexaoBlobConteiner = conexaoBlob.GetBlobContainerClient(Conexoes.ConteinerPadrao);
         }
 
-        /// <summary>
-        /// Devolve uma string vazia caso sucesso, ou o erro
-        /// </summary>
-        /// <param name="arquivo"></param>
-        /// <param name="nomeArquivo"></param>
-        /// <returns></returns>
-        public async Task<string> SalvarImagem(MemoryStream arquivo, string nomeArquivo)
+        public async Task SalvarImagem(MemoryStream arquivo, string nomeArquivo)
         {
-            string erro = string.Empty;
-            try
-            {
-                var blockBlob = conexaoBlobConteiner.GetBlockBlobClient(nomeArquivo);
-                await conexaoBlobConteiner.CreateIfNotExistsAsync();
-                await blockBlob.UploadAsync(arquivo);
-            }
-            catch (Exception ex)
-            {
-                erro = ex.ToString();
-            }
-            return erro;
+            var blockBlob = ConexaoBlobConteiner.GetBlockBlobClient(nomeArquivo);
+            await ConexaoBlobConteiner.CreateIfNotExistsAsync();
+            await blockBlob.UploadAsync(arquivo);
         }
 
-        /// <summary>
-        /// Devolve uma string vazia caso sucesso, ou o erro
-        /// </summary>
-        /// <param name="nomeArquivo"></param>
-        /// <returns></returns>
-        public async Task<string> DeletarImagem(string nomeArquivo)
+        public async Task DeletarImagem(string nomeArquivo)
         {
-            string erro = string.Empty;
-            try
-            {
-                var blockBlob = conexaoBlobConteiner.GetBlockBlobClient(nomeArquivo);
-                await blockBlob.DeleteAsync();
-            }
-            catch (Exception ex)
-            {
-                erro = ex.ToString();
-            }
-            return erro;
+            var blockBlob = ConexaoBlobConteiner.GetBlockBlobClient(nomeArquivo);
+            await blockBlob.DeleteAsync();
         }
 
         public async Task<MemoryStream> DownloadImagem(string nomeArquivo)
         {
             MemoryStream imagem = new MemoryStream();
-            var blockBlob = conexaoBlobConteiner.GetBlockBlobClient(nomeArquivo);
+            var blockBlob = ConexaoBlobConteiner.GetBlockBlobClient(nomeArquivo);
             await blockBlob.DownloadToAsync(imagem);
             return imagem;
         }
+
+
+        public Uri DownloadImageURI(string nomeArquivo)
+        {
+            BlobClient blobClient = ConexaoBlobConteiner.GetBlobClient(nomeArquivo);
+
+            BlobSasBuilder sasBuilder = new BlobSasBuilder()
+            {
+                BlobContainerName = ConexaoBlobConteiner.Name,
+                BlobName = blobClient.Name,
+                Resource = "b"
+            };
+
+            sasBuilder.ExpiresOn = DateTimeOffset.UtcNow.AddDays(1);
+            sasBuilder.SetPermissions(BlobContainerSasPermissions.Read);
+
+            return blobClient.GenerateSasUri(sasBuilder);
+        }
     }
-   
+
 }

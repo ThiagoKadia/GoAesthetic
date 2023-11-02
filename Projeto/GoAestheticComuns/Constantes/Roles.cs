@@ -1,4 +1,4 @@
-﻿namespace GoAestheticNegocio.Constantes
+﻿namespace GoAestheticComuns.Constantes
 {
     public static class Roles
     {

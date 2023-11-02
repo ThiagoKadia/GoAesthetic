@@ -1,6 +1,7 @@
 ﻿using GoAestheticEntidades;
 using GoAestheticEntidades.Entities;
 using GoAestheticNegocio;
+using GoAestheticNegocio.Implementacao;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -15,16 +16,20 @@ namespace GoAesthetic.Controllers.ControllersBase
     {
         protected GoAestheticDbContext Contexto;
         private bool SideBar { get; set; }
+
+        protected ErroNegocio ErroNegocio;
         public BaseController(GoAestheticDbContext context)
         {
             SideBar = true;
             Contexto = context;
+            ErroNegocio = new ErroNegocio(context);
         }
 
         public BaseController(bool sideBar, GoAestheticDbContext context)
         {
             SideBar = sideBar;
             Contexto = context;
+            ErroNegocio = new ErroNegocio(context);
         }
 
         protected async void RealizaLogInUsuario(UsuariosViewModel Usuario)
@@ -44,7 +49,14 @@ namespace GoAesthetic.Controllers.ControllersBase
                 {
                     IsPersistent = true,
                 });
+        }
 
+        protected bool VerificaUsuarioLogado()
+        {
+            if (HttpContext.User.Identity == null)
+                return false;
+
+            return HttpContext.User.Identity.IsAuthenticated;
         }
 
         protected async void RealizaLogOutUsuario()

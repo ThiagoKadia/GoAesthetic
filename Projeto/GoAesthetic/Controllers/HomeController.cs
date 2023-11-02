@@ -9,7 +9,7 @@ using System.Diagnostics;
 namespace GoAesthetic.Controllers
 {
     public class HomeController : BaseController
-    {
+    {      
         public HomeController(GoAestheticDbContext context) : base(context)
         {
         }

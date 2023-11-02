@@ -4,7 +4,7 @@
     [USR_Id] INT NOT NULL, 
     [MEV_Altura] FLOAT NULL, 
     [MEV_Peso] FLOAT NULL, 
-    [MEV_CaminhoFoto] VARCHAR(MAX) NULL, 
+    [MEV_NomeArquivoFoto] VARCHAR(50) NULL, 
     [MEV_Data] DATETIME NULL, 
     CONSTRAINT [FK_tbMarcosEvolucao_tbUsuarios] FOREIGN KEY ([USR_Id]) REFERENCES [tbUsuarios]([USR_Id])
 )

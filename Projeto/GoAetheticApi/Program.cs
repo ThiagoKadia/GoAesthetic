@@ -1,5 +1,6 @@
 using GoAestheticApi.Repositories;
 using GoAestheticEntidades;
+using GoAestheticNegocio.Helpers;
 using GoAetheticApi;
 using GoAetheticApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -14,7 +15,7 @@ var key = Encoding.ASCII.GetBytes(Settings.Secret);
 
 builder.Services.AddDbContext<GoAestheticDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("GoAestheticDBLocal"));
+    options.UseSqlServer(EnvironmentHelper.BuscaStringConexaoDb().Result);
 });
 
 builder.Services.AddAuthentication(x =>
