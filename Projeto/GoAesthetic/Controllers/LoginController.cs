@@ -31,7 +31,6 @@ namespace GoAesthetic.Controllers
         public async Task<IActionResult> RealizaLogin(UsuariosViewModel usuario)
         {
             var loginNegocio = new LoginNegocio(Contexto);
-            var erroNegocio = new ErroNegocio(Contexto);
             var resposta = new RespostaPadrao();
 
             try
@@ -53,7 +52,7 @@ namespace GoAesthetic.Controllers
             {
                 resposta.Erro = true;
                 resposta.Mensagem = ex.Message;
-                await erroNegocio.EscreveErroBanco(ex);
+                await ErroNegocio.EscreveErroBanco(ex);
             }
 
             return Json(resposta);

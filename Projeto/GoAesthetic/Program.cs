@@ -2,7 +2,7 @@ using GoAestheticEntidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using GoAestheticNegocio.Constantes;
+using GoAestheticComuns.Constantes;
 using GoAestheticNegocio.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);

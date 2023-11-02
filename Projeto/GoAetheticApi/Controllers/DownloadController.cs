@@ -1,4 +1,4 @@
-﻿using GoAestheticNegocio.Constantes;
+﻿using GoAestheticComuns.Constantes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

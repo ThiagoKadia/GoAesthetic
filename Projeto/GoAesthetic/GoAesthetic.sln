@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoAestheticNegocio", "..\GoAestheticNegocio\GoAestheticNegocio.csproj", "{4DB3292C-D7FD-4ED8-BFA7-AB6B43A7FDFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoAestheticComuns", "..\GoAestheticComuns\GoAestheticComuns.csproj", "{C953F9F1-6D43-4129-A166-9BE392B4D77D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{4DB3292C-D7FD-4ED8-BFA7-AB6B43A7FDFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DB3292C-D7FD-4ED8-BFA7-AB6B43A7FDFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DB3292C-D7FD-4ED8-BFA7-AB6B43A7FDFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C953F9F1-6D43-4129-A166-9BE392B4D77D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C953F9F1-6D43-4129-A166-9BE392B4D77D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C953F9F1-6D43-4129-A166-9BE392B4D77D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C953F9F1-6D43-4129-A166-9BE392B4D77D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

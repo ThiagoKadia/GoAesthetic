@@ -4,22 +4,38 @@ document.addEventListener('DOMContentLoaded', function () {
     loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const cadastroSucedido = true;
+        $.ajax({
+            type: 'POST',
+            url: '/Cadastro/RealizaCadastro',
+            data: {
+                Nome: $('#Nome').val(),
+                Email: $('#Email').val(),
+                Senha: $('#Senha').val(),
+                DataNascimento: $('#DataNascimento').val(),
+                Sexo: $('#Sexo').val(),
+                Altura: $('#Altura').val(),
+                Peso: $('#Peso').val(),
 
-        if (cadastroSucedido) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Cadastro Realizado',
-                text: 'Seu cadastro foi criado com sucesso!',
-            });
-        }
-        else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Cadastro incompleto',
-                text: 'Ficaram faltando informações ou houve algum erro no preenchimento.',
-            });
-        }
-
-    });
+            },
+            datatype: "JSON",
+            ContentType: "application/json",
+            success: (resultado) => {
+                if (resultado.sucesso) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Cadastro Realizado',
+                        text: 'Seu cadastro foi criado com sucesso!',
+                    }).then(function () {
+                        window.location.href = '/Home/Index';
+                    })
+                }
+                else if (resultado.erro) {
+                    window.location.href = '/Erro/Index';
+                }
+                else {
+                    informaErros(resultado.dados);
+                }
+            }
+        });
+    })
 });
