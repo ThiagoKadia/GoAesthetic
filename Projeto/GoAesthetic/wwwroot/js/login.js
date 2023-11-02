@@ -17,25 +17,31 @@ document.addEventListener('DOMContentLoaded', function () {
             ContentType: "application/json",
             success: (resultado) => {
                 if (resultado.sucesso) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Login realizado',
-                        text: 'Voce foi autenticado com sucesso!',
-                    }).then(function () {
+                   Swal.fire({
+                	icon: 'success',
+                	title: 'Login realizado',
+                	text: 'Usuario autenticado com sucesso!',
+                	customClass: {
+                    		popup: 'swal-custom-popup',
+                    		content: 'swal-custom-text'
+                	},
+            	   }).then(function () {
                             window.location.href = '/Home/Index';                       
-                    })
-                    
+                    })            
                 }
                 else if (resultado.erro) {
                     window.location.href = '/Erro/Index';
                 }
                 else {
                     Swal.fire({
-                        icon: 'error',
-                        title: 'Senha Incorreta!',
-                        text: 'Insira a senha cadastrada e tente novamente!',
-                    });
-                }
+                	icon: 'error',
+                	title: 'Senha Incorreta!',
+                	text: 'Insira a senha cadastrada e tente novamente!',
+                	customClass: {
+                    		popup: 'swal-custom-popup',
+                    		content: 'swal-custom-text'
+                	},
+           	   });             
             }
         });
     })

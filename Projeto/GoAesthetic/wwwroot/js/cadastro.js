@@ -15,17 +15,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 Sexo: $('#Sexo').val(),
                 Altura: $('#Altura').val(),
                 Peso: $('#Peso').val(),
-
             },
             datatype: "JSON",
             ContentType: "application/json",
             success: (resultado) => {
                 if (resultado.sucesso) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Cadastro Realizado',
-                        text: 'Seu cadastro foi criado com sucesso!',
-                    }).then(function () {
+                     Swal.fire({
+                	icon: 'success',
+                	title: 'Cadastro Realizado',
+                	text: 'Seu cadastro foi criado com sucesso!',
+                	customClass: {
+                    		popup: 'swal-custom-popup',
+                    		content: 'swal-custom-text'
+                	},
+            	    }).then(function () {
                         window.location.href = '/Home/Index';
                     })
                 }
