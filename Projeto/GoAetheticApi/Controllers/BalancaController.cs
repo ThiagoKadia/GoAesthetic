@@ -66,6 +66,8 @@ namespace GoAetheticApi.Controllers
             {
                 var idUsuario = await _usuarioRepository.GetIdPorNomeDeUsuario(request.Usuario);
                 var ultimoMarco = await _marcoEvolucaoRepository.SelectUltimoMarco(idUsuario);
+
+                ultimoMarco.Id = 0;
                 ultimoMarco.Peso = request.Peso;
                 ultimoMarco.DataInclusao = request.Data;
 
@@ -74,7 +76,6 @@ namespace GoAetheticApi.Controllers
             }
             catch (Exception ex)
             {
-
                 await _logRepository.InsereLog(new LogViewModel()
                 {
                     Data = DateTime.Now,
