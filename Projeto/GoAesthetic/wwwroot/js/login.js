@@ -10,15 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
             Swal.fire({
                 icon: 'success',
                 title: 'Login realizado',
-                text: 'Você foi autenticado com sucesso!',
+                text: 'Usuario autenticado com sucesso!',
                 customClass: {
                     popup: 'swal-custom-popup',
                     content: 'swal-custom-text'
                 },
-                onOpen: function () {
-                    // Aplicar a cor preta diretamente no texto
-                    document.querySelector('.swal-custom-text').style.color = 'black';
-                }
             });
         } else {
             Swal.fire({
@@ -29,10 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     popup: 'swal-custom-popup',
                     content: 'swal-custom-text'
                 },
-                onOpen: function () {
-                    // Aplicar a cor preta diretamente no texto
-                    document.querySelector('.swal-custom-text').style.color = 'black';
-                }
+
             });
         }
     });

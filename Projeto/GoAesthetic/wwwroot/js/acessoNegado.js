@@ -12,8 +12,9 @@
                 title: 'Acesso Negado!',
                 text: 'Você não tem acesso a essa aba. Entre em contato com os administradores',
                 customClass: {
-                    popup: 'black-background'
-                }
+                    popup: 'swal-custom-popup',
+                    content: 'swal-custom-text'
+                },
             });
         }
 

@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 icon: 'success',
                 title: 'Cadastro Realizado',
                 text: 'Seu cadastro foi criado com sucesso!',
+                customClass: {
+                    popup: 'swal-custom-popup',
+                    content: 'swal-custom-text'
+                },
             });
         }
         else {
@@ -18,6 +22,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 icon: 'error',
                 title: 'Cadastro incompleto',
                 text: 'Ficaram faltando informações ou houve algum erro no preenchimento.',
+                customClass: {
+                    popup: 'swal-custom-popup',
+                    content: 'swal-custom-text'
+                },
             });
         }
 
