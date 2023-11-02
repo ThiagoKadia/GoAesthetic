@@ -18,7 +18,7 @@ namespace GoAestheticApi.Repositories
         public async ValueTask<AutorizacaoViewModel> SelectUser(AuthRequest user)
         {
             string hashSenha = CriptografiaHelper.CriaHashSenha(user.Senha);
-            return await _dbContext.AutorizacaoViewModel.FirstAsync(x => x.Usuario.ToLower().Equals(user.Usuario) &&
+            return await _dbContext.AutorizacaoViewModel.FirstOrDefaultAsync(x => x.Usuario.ToLower().Equals(user.Usuario) &&
                                                                          x.Senha == hashSenha);
         }
     }
