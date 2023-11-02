@@ -11,6 +11,9 @@
                 icon: 'question',
                 title: 'Acesso Negado!',
                 text: 'Você não tem acesso a essa aba. Entre em contato com os administradores',
+                customClass: {
+                    popup: 'black-background'
+                }
             });
         }
 

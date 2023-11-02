@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 icon: 'success',
                 title: 'Cadastro Realizado',
                 text: 'Seu cadastro foi criado com sucesso!',
+                customClass: {
+                    popup: 'black-background', // Aplica a classe CSS personalizada ao modal
+                },
             });
         }
         else {
@@ -18,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 icon: 'error',
                 title: 'Cadastro incompleto',
                 text: 'Ficaram faltando informações ou houve algum erro no preenchimento.',
+                customClass: {
+                    popup: 'black-background', // Aplica a classe CSS personalizada ao modal
+                },
             });
         }
 
