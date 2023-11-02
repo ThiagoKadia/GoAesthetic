@@ -1,6 +1,8 @@
 ﻿using GoAesthetic.Controllers.ControllersBase;
+using GoAesthetic.Respostas;
 using GoAestheticEntidades;
 using GoAestheticEntidades.Entities;
+using GoAestheticNegocio.Implementacao;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -9,39 +11,58 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GoAesthetic.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : BaseController
-    {
+    {    
         public LoginController(GoAestheticDbContext context) : base(false, context)
         {
         }
 
-        [AllowAnonymous]
+
         public IActionResult Index()
         {
-            ViewBag.SideBar = false;
-            return View();
+            if(VerificaUsuarioLogado())
+                return RedirectToAction("Index", "Home");
+            else
+                return View();
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> Edit(UsuariosViewModel usuario)
+        [HttpPost("/Login/RealizaLogin")]
+        public async Task<IActionResult> RealizaLogin(UsuariosViewModel usuario)
         {
-            var usuarioLogado = await Contexto.UsuariosViewModel.Where(x => x.Email == usuario.Email && x.Senha == usuario.Senha)
-                                                                .Select(u => new UsuariosViewModel()
-                                                                {
-                                                                    Nome = u.Nome,
-                                                                    Senha = u.Senha,
-                                                                    NomeRole = u.Autorizacao.Role                                                        
-                                                                })
-                                                                .AsNoTracking()                                                     
-                                                                .FirstOrDefaultAsync();
+            var loginNegocio = new LoginNegocio(Contexto);
+            var resposta = new RespostaPadrao();
 
-            if (usuarioLogado == null)
-                return View("Index");
-            
-            RealizaLogInUsuario(usuarioLogado);
+            try
+            {
+                if (string.IsNullOrEmpty(usuario.Senha) || string.IsNullOrEmpty(usuario.Email))
+                {
+                    resposta.Sucesso = false;
+                    resposta.Mensagem = "Digite usuário e senha";
+                    return Json(resposta);
+                }
 
-            return RedirectToAction("Index", "Home");
-        } 
+                var usuarioLogado = await loginNegocio.VerificaLoginCorreto(usuario.Email, usuario.Senha);
+
+                if (usuarioLogado == null)
+                {
+                    resposta.Sucesso = false;
+                    resposta.Mensagem = "Usuário ou Senha Inexistentes";
+                    return Json(resposta);
+                }
+
+                RealizaLogInUsuario(usuarioLogado);
+
+                resposta.Sucesso = true;
+            }
+            catch (Exception ex)
+            {
+                resposta.Erro = true;
+                resposta.Mensagem = ex.Message;
+                await ErroNegocio.EscreveErroBanco(ex);
+            }
+
+            return Json(resposta);
+        }
     }
 }

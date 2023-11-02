@@ -1,10 +1,8 @@
 ﻿using GoAestheticApi.Repositories;
-using GoAestheticEntidades;
 using GoAetheticApi.Models.Request;
 using GoAetheticApi.Models.Response;
 using GoAetheticApi.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GoAetheticApi.Controllers
 {

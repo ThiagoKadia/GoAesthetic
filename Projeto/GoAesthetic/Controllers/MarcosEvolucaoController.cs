@@ -19,11 +19,9 @@ namespace GoAesthetic.Controllers
 
             var storare = new StorageHelper();
 
-            using (MemoryStream ms = await storare.DownloadImagem("PrimeiroArquivo"))
-            {
-                var fileBytes = ms.ToArray();
-                marcoEvolucao.ArquivoBase64 = Convert.ToBase64String(fileBytes);
-            }
+            ViewBag.urlImagem = storare.DownloadImageURI("Pedra.jpg");
+            ViewBag.urlImagem2 = storare.DownloadImageURI("tintin.jpg");
+            ViewBag.urlImagem3 = storare.DownloadImageURI("Loud.jpg");
 
             return View(marcoEvolucao);
         }
@@ -38,7 +36,7 @@ namespace GoAesthetic.Controllers
                 await marcosEvolucao.Arquivo.CopyToAsync(ms);
                 ms.Position = 0;
 
-                await storare.SalvarImagem(ms, "PrimeiroArquivo");
+                await storare.SalvarImagem(ms, "SegundoArquivo.jpg");
             }
             return View(marcosEvolucao);
         }

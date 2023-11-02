@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using GoAestheticComuns.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GoAestheticEntidades.Entities
 {
@@ -20,22 +21,24 @@ namespace GoAestheticEntidades.Entities
         [Column("USR_Senha")]
         public string Senha { get; set; }
 
-        [Column("USR_Idade")]
-        public int? Idade { get; set; }
+        [Column("USR_DataNascimento")]
+        public DateTime DataNascimento { get; set; }
 
         [Column("USR_Sexo")]
-        public int? Sexo { get; set; }
-
-        [Column("USR_Altura")]
-        public double? Altura { get; set; }
-
-        [Column("USR_Peso")]
-        public double? Peso { get; set; }
+        public SexoEnum Sexo { get; set; }
 
         [ForeignKey("AutorizacaoId")]
         public virtual AutorizacaoViewModel Autorizacao { get; set; }
 
         [NotMapped]
+        public double? Altura { get; set; }
+
+        [NotMapped]
+        public double? Peso { get; set; }
+
+        [NotMapped]
         public string NomeRole { get; set; }
+
+        
     }
 }

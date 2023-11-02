@@ -1,6 +1,6 @@
 ﻿using GoAestheticApi.Repositories;
 using GoAestheticEntidades.Entities;
-using GoAestheticNegocio.Constantes;
+using GoAestheticComuns.Constantes;
 using GoAetheticApi.Models.Request;
 using GoAetheticApi.Models.Response;
 using Microsoft.AspNetCore.Authorization;
