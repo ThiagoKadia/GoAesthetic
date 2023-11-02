@@ -1,5 +1,5 @@
 ﻿using GoAestheticEntidades;
-using GoAestheticNegocio.Constantes;
+using GoAestheticComuns.Constantes;
 using GoAetheticApi.Models.Response;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

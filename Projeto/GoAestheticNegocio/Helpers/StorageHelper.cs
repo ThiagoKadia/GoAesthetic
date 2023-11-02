@@ -2,7 +2,7 @@
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Specialized;
 using Azure.Storage.Sas;
-using GoAestheticNegocio.Constantes;
+using GoAestheticComuns.Constantes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

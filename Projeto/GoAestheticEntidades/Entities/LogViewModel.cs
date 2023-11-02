@@ -14,10 +14,10 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("LOG_Erro")]
-        public string? GrupoAlimento { get; set; }
+        public string? Erro { get; set; }
 
         [Column("LOG_StackTrace")]
-        public string? Quantidade { get; set; }
+        public string? StackTrace { get; set; }
 
         [Column("LOG_Data")]
         public DateTime Data { get; set; }

@@ -6,21 +6,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const senha = loginForm.querySelector('input[name="senha"]').value;
 
-        if (senha === '123') {
-            Swal.fire({
-                icon: 'success',
-                title: 'Login realizado',
-                text: 'Voce foi autenticado com sucesso!',
-            });
-        }
-        else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Senha Incorreta!',
-                text: 'Insira a senha cadastrada e tente novamente!',
-            });
-        }
-
-
-    });
+        $.ajax({
+            type: 'POST',
+            url: '/Login/RealizaLogin',
+            data: {
+                Email: $('#Email').val(),
+                Senha: $('#Senha').val()
+            },
+            datatype: "JSON",
+            ContentType: "application/json",
+            success: (resultado) => {
+                if (resultado.sucesso) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Login realizado',
+                        text: 'Voce foi autenticado com sucesso!',
+                    }).then(function () {
+                            window.location.href = '/Home/Index';                       
+                    })
+                    
+                }
+                else if (resultado.erro) {
+                    window.location.href = '/Erro/Index';
+                }
+                else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Senha Incorreta!',
+                        text: 'Insira a senha cadastrada e tente novamente!',
+                    });
+                }
+            }
+        });
+    })
 });
