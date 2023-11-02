@@ -44,7 +44,14 @@ namespace GoAesthetic.Controllers.ControllersBase
                 {
                     IsPersistent = true,
                 });
+        }
 
+        protected bool VerificaUsuarioLogado()
+        {
+            if (HttpContext.User.Identity == null)
+                return false;
+
+            return HttpContext.User.Identity.IsAuthenticated;
         }
 
         protected async void RealizaLogOutUsuario()
