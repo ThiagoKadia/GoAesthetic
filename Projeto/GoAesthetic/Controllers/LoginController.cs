@@ -35,12 +35,19 @@ namespace GoAesthetic.Controllers
 
             try
             {
+                if (string.IsNullOrEmpty(usuario.Senha) || string.IsNullOrEmpty(usuario.Email))
+                {
+                    resposta.Sucesso = false;
+                    resposta.Mensagem = "Digite usuário e senha";
+                    return Json(resposta);
+                }
+
                 var usuarioLogado = await loginNegocio.VerificaLoginCorreto(usuario.Email, usuario.Senha);
 
                 if (usuarioLogado == null)
                 {
                     resposta.Sucesso = false;
-                    resposta.Mensagem = "Usuário ou Senha Inexistestes";
+                    resposta.Mensagem = "Usuário ou Senha Inexistentes";
                     return Json(resposta);
                 }
 
