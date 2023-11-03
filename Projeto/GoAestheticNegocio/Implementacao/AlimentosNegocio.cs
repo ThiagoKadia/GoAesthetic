@@ -33,7 +33,7 @@ namespace GoAestheticNegocio.Implementacao
 
         public void CalculaValoresPorGrama(ref InformacoesAlimentosViewModel informacoes)
         {
-            informacoes.Energia = GenericoHelper.DivideValorPorCem(informacoes.Energia) * 1000; //Pasasndo de KCal para Calorias
+            informacoes.Energia = GenericoHelper.DivideValorPorCem(informacoes.Energia);
             informacoes.Proteina = GenericoHelper.DivideValorPorCem(informacoes.Proteina);
             informacoes.Lipideos = GenericoHelper.DivideValorPorCem(informacoes.Lipideos);
             informacoes.Colasterol = GenericoHelper.DivideValorPorCem(informacoes.Colasterol);
