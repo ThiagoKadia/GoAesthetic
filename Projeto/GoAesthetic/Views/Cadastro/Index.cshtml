@@ -1,8 +1,12 @@
 ﻿@model GoAestheticEntidades.Entities.UsuariosViewModel;
+@{
+    bool inclusao = ViewBag.Inclusao;
+    string pesoConvertido = (Model != null && Model.Peso.HasValue) ? Model.Peso.Value.ToString().Replace(',', '.') : "";
+}
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/Cadastro.css">
+    <link rel="stylesheet" href="~/css/Cadastro.css">
     <title> Cadastro </title>
 </head>
 <body>
@@ -10,7 +14,7 @@
         <div class="cadastro">
 
             <form id="cadastro-form">
-
+                <input type="hidden" id="Inclusao" value="@inclusao" />
                 <input asp-for="Nome" type="text" name="nome" placeholder="Nome" autofocus>
                 <input asp-for="Email" type="text" name="email" placeholder="Email" autofocus>
                 <input asp-for="Senha" type="password" name="senha" placeholder="Senha">
@@ -22,12 +26,22 @@
                     <option value="agenero">Agênero</option>
                 </select>
                 <input asp-for="Altura" type="number" class="input-number" name="altura" placeholder="Altura (cm)" autofocus>
-                <input asp-for="Peso" type="number" class="input-number" name="peso" placeholder="Peso (kg)" step=".01" autofocus>
+                <input asp-for="Peso" type="number" class="input-number" name="peso" placeholder="Peso (kg)" step=".01" autofocus value="@pesoConvertido">
                 <br><br />
-                <input type="submit" value="criar cadastro">
+                @if(inclusao)
+                {
+                    <input type="button" id=btnSalvar value="Criar cadastro">
+                }
+                else
+                {
+                    <input type="button" id=btnSalvar value="Alterar cadastro">
+                }
+                
             </form>
-            <p>Já tem um cadastro? <a href="Login">Ir para o Login</a></p>
-
+            @if(inclusao)
+            {
+                <p>Já tem um cadastro? <a href="Login">Ir para o Login</a></p>
+            }         
         </div>
 
 

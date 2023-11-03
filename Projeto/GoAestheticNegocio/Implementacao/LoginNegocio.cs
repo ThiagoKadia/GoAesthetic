@@ -64,5 +64,48 @@ namespace GoAestheticNegocio.Implementacao
             }
             return usuario;
         }
+
+        public async Task<UsuariosViewModel> BuscaUsuarioId(int id)
+        {
+            var usuario = await Contexto.UsuariosViewModel.Where(x => x.Id == id).AsNoTracking().FirstAsync();
+
+            var pesoAltura = await Contexto.MarcosEvolucaoViewModel.Where(m => m.Usuario == usuario.Id)
+                                                                   .OrderByDescending(m => m.DataInclusao)
+                                                                   .Select(m => new { Peso = m.Peso, Altura = m.Altura })
+                                                                   .FirstAsync();
+
+            usuario.Peso = pesoAltura.Peso;
+            usuario.Altura = pesoAltura.Altura;
+
+            return usuario;
+        }
+
+        public async Task AtualizaUsuario(UsuariosViewModel usuarioAntigo, UsuariosViewModel usuarioNovo)
+        {
+            usuarioAntigo.Nome = usuarioNovo.Nome;
+            usuarioAntigo.Email = usuarioNovo.Email;
+            usuarioAntigo.Senha = string.IsNullOrEmpty(usuarioNovo.Senha) ? usuarioAntigo.Senha : usuarioNovo.Senha;
+            usuarioAntigo.DataNascimento = usuarioNovo.DataNascimento;
+            usuarioAntigo.Sexo = usuarioNovo.Sexo;
+
+            using var transaction = Contexto.Database.BeginTransaction();
+            {
+                Contexto.UsuariosViewModel.Update(usuarioAntigo);
+                await Contexto.SaveChangesAsync();
+
+                var novoMarcoEvolucao = new MarcosEvolucaoViewModel()
+                {
+                    Usuario = usuarioAntigo.Id,
+                    Altura = usuarioNovo.Altura,
+                    Peso = usuarioNovo.Peso,
+                    DataInclusao = DateTime.Now
+                };
+
+                Contexto.MarcosEvolucaoViewModel.Add(novoMarcoEvolucao);
+                await Contexto.SaveChangesAsync();
+
+                transaction.Commit();
+            }
+        }
     }
 }
