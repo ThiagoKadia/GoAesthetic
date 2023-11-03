@@ -2,7 +2,7 @@
 (
 	[IFA_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [GAL_Id] INT NOT NULL,
-	[IFA_Nome] [varchar](max) NULL,
+	[IFA_Nome] [varchar](max) NOT NULL,
 	[IFA_Energia] FLOAT NULL,
 	[IFA_Proteina] FLOAT NULL,
 	[IFA_Lipideos] FLOAT NULL,

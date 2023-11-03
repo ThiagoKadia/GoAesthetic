@@ -64,7 +64,7 @@ namespace GoAestheticNegocio.Implementacao
                 {
                     Nome = nomeRefeicao,
                     DataInclusao =  DateTime.Now,
-                    Usuario = idUsuarioLogado
+                    UsuarioId = idUsuarioLogado
                 };
 
                 Contexto.RegistroRefeicoesViewModel.Add(refeicao);

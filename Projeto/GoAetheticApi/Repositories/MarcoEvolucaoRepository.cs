@@ -15,7 +15,7 @@ namespace GoAestheticApi.Repositories
 
         public async ValueTask<MarcosEvolucaoViewModel> SelectUltimoMarco(string user) 
         {
-            return await _dbContext.MarcosEvolucaoViewModel.FirstOrDefaultAsync(x => x.Usuario.Equals(user));
+            return await _dbContext.MarcosEvolucaoViewModel.FirstOrDefaultAsync(x => x.UsuarioId.Equals(user));
         }
     }
 }

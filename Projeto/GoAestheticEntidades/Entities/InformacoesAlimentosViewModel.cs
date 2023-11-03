@@ -9,7 +9,7 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("GAL_Id")]
-        public int GrupoAlimento { get; set; }
+        public int GrupoAlimentoId { get; set; }
 
         [Column("IFA_Nome")]
         public string Nome { get; set; }
