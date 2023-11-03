@@ -4,3 +4,7 @@
         $('#' + element.id).after('<span class="text-danger erros-formulario" >' + element.erro + '</span>');
     })
 }
+
+function limpaErros() {
+    $('.erros-formulario').remove();
+}

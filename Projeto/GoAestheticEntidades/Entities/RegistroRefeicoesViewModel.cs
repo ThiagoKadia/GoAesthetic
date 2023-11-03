@@ -9,7 +9,7 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("USR_Id")]
-        public UsuariosViewModel? Usuario { get; set; }
+        public int Usuario { get; set; }
 
         [Column("RRF_Nome")]
         public string Nome { get; set; }

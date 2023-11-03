@@ -39,6 +39,7 @@
 
     .registro input[type="date"],
     .registro input[type="text"],
+    .selectbox,
     .registro input[type="number"] {
         background-color: #252A34;
         color: #F9F5EC;

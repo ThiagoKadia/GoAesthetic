@@ -26,6 +26,7 @@ namespace GoAestheticNegocio.Implementacao
             return await Contexto.UsuariosViewModel.Where(x => x.Email == email && x.Senha == hashSenha)
                                                                 .Select(u => new UsuariosViewModel()
                                                                 {
+                                                                    Id = u.Id,
                                                                     Nome = u.Nome,
                                                                     Senha = u.Senha,
                                                                     NomeRole = u.Autorizacao.Role
@@ -54,7 +55,7 @@ namespace GoAestheticNegocio.Implementacao
                     Usuario = usuario.Id,
                     Altura = usuario.Altura,
                     Peso = usuario.Peso,
-                    DataInclusao = DateTime.UtcNow
+                    DataInclusao = DateTime.Now
                 };
                 Contexto.MarcosEvolucaoViewModel.Add(primeiroMarcoEvolucao);
                 await Contexto.SaveChangesAsync();

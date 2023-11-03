@@ -59,6 +59,11 @@ namespace GoAesthetic.Controllers.ControllersBase
             return HttpContext.User.Identity.IsAuthenticated;
         }
 
+        protected int BuscaIdUsuarioLogado()
+        {
+            return Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value);
+        }
+
         protected async void RealizaLogOutUsuario()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

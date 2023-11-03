@@ -9,7 +9,10 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("IFA_Id")]
-        public GrupoAlimentoViewModel GrupoAlimento { get; set; }
+        public int InformacaoAlimentoId { get; set; }
+
+        [Column("RRF_Id")]
+        public int RegistroRefeicaoId { get; set; }
 
         [Column("ALM_Quantidade")]
         public double? Quantidade { get; set; }

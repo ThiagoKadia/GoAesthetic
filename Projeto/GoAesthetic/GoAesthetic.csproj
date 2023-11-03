@@ -36,11 +36,4 @@
     <ProjectReference Include="..\GoAestheticNegocio\GoAestheticNegocio.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Update="wwwroot\js\site.js">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>
