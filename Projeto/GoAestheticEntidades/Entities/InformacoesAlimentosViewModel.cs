@@ -9,7 +9,7 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("GAL_Id")]
-        public GrupoAlimentoViewModel GrupoAlimento { get; set; }
+        public int GrupoAlimento { get; set; }
 
         [Column("IFA_Nome")]
         public string Nome { get; set; }
@@ -40,5 +40,8 @@ namespace GoAestheticEntidades.Entities
 
         [Column("IFA_VitaminaC")]
         public double? VitaminaC { get; set; }
+
+        [NotMapped]
+        public double Quantidade { get; set; }
     }
 }

@@ -21,8 +21,8 @@
                     <option value="feminino">Feminino</option>
                     <option value="agenero">Agênero</option>
                 </select>
-                <input asp-for="Altura"type="number" class="input-number" name="altura" placeholder="Altura (cm)"  autofocus>
-                <input asp-for="Peso" type="number" class="input-number" name="peso" placeholder="Peso (kg)" step=".01"  autofocus>
+                <input asp-for="Altura" type="number" class="input-number" name="altura" placeholder="Altura (cm)" autofocus>
+                <input asp-for="Peso" type="number" class="input-number" name="peso" placeholder="Peso (kg)" step=".01" autofocus>
                 <br><br />
                 <input type="submit" value="criar cadastro">
             </form>
@@ -30,9 +30,12 @@
 
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-        <script src="~/js/informaErros.js"></script>
-        <script src="~/js/cadastro.js"></script>
     </section>
 </body>
+
+@section Scripts{
+    <script src="~/lib/sweet-alert-2/sweetalert2.all.min.js"></script>
+    <script src="~/js/informaErros.js"></script>
+    <script src="~/js/cadastro.js"></script>
+}

@@ -1,0 +1,96 @@
+﻿@model GoAestheticEntidades.Entities.RegistroRefeicoesViewModel;
+@{
+    SelectList alimentos = ViewBag.Alimentos;
+}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="~/css/Registrar.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Home </title>
+</head>
+
+<body>
+    <main class="main">
+        <div class="registro">
+            <h1>Registro de Alimentos</h1>
+            <form id="formularioRegistro">
+                <label for="NomeRefeicao">Nome da Refeição:</label>
+                <input asp-for="Nome" type="text" name="data" required>
+                <br>
+
+                <label for="Alimentos">Alimento:</label>
+                <select asp-items="alimentos" id="listaAlimentos" class="selectbox" placeholder="Escolha um Alimento"></select>
+                <br>
+
+                <label for="quantidade">Quantidade (g):</label>
+                <input type="number" id="quantidade" name="quantidade" required>
+                <br>
+
+                <button type="button" id="btnCalcularAlimento">Calcular</button>
+
+                <h2>Informações Nutricionais:</h2>
+                <table border="1" id="resumoAlimento">
+                    <tr>
+                        <th>Alimento</th>
+                        <th>Quantidade (g)</th>
+                        <th>Calorias</th>
+                        <th>Proteínas</th>
+                        <th>Carboidratos</th>
+                        <th>Gorduras</th>
+                    </tr>
+                </table>
+                <br>
+
+                <button id="btnAdicionarRefeicao" type="button">Adicionar a Refeição</button>
+                <br>
+                <br>
+
+                <h2>Refeição:</h2>
+                <table border="1" id="Refeicao">
+                    <tr>
+                        <th>Remover</th>
+                        <th>Alimento</th>
+                        <th>Quantidade (g)</th>
+                        <th>Calorias</th>
+                        <th>Proteínas</th>
+                        <th>Carboidratos</th>
+                        <th>Gorduras</th>
+                    </tr>
+                </table>
+                <br />
+
+                <h2>Resumo:</h2>
+                <table border="1" id="resumoRefeicao">
+                    <tr>
+                        <th>Quantidade (g)</th>
+                        <th>Calorias</th>
+                        <th>Proteínas</th>
+                        <th>Carboidratos</th>
+                        <th>Gorduras</th>
+                    </tr>
+                    <tr id="linhaResumoRefeicao">
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </table>
+                <br />
+                <button id="btnSalvar" type="button">Salvar</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+@section Scripts{
+<script src="~/js/registroRefeicoes.js"></script>
+<script src="~/lib/sweet-alert-2/sweetalert2.all.min.js"></script>
+<script src="~/js/informaErros.js"></script>
+}
+
+
+

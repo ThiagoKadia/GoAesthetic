@@ -23,7 +23,7 @@ namespace GoAestheticNegocio.Implementacao
                 {
                     Erro = ex.Message,
                     StackTrace = ex.StackTrace,
-                    Data = DateTime.UtcNow
+                    Data = DateTime.Now
                 };
 
                 Contexto.LogViewModel.Add(log);
