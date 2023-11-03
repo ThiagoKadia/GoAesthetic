@@ -37,9 +37,14 @@ builder.Services.AddAuthentication(x =>
 });
 
 builder.Services.AddScoped<TokenService>();
-builder.Services.AddScoped<AuthRepository>();
-builder.Services.AddScoped<BalancaRepository>();
-builder.Services.AddScoped<MarcoEvolucaoRepository>();
+
+//Repositories
+builder.Services.AddTransient<AuthRepository>();
+builder.Services.AddTransient<BalancaRepository>();
+builder.Services.AddTransient<MarcoEvolucaoRepository>();
+builder.Services.AddTransient<UsuarioRepository>();
+builder.Services.AddTransient<LogRepository>();
+builder.Services.AddTransient<DicionarioRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
