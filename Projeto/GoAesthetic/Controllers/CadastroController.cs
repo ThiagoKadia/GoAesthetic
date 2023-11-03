@@ -31,22 +31,19 @@ namespace GoAesthetic.Controllers
         public async Task<IActionResult> Editar()
         {
             var loginNegocio = new LoginNegocio(Contexto);
-            UsuariosViewModel usuario = new UsuariosViewModel();
             try
             {
                 int idUsuarioLogado = BuscaIdUsuarioLogado();
-                usuario = await loginNegocio.BuscaUsuarioId(idUsuarioLogado);
+                var usuario = await loginNegocio.BuscaUsuarioId(idUsuarioLogado);
+                ViewBag.SideBar = true;
+                ViewBag.Inclusao = false;
+                return View("Index", usuario);
             }
             catch (Exception ex)
             {
                 await ErroNegocio.EscreveErroBanco(ex);
-                RedirectToAction("Index", "Erro");
+                return RedirectToAction("Index", "Erro");
             }
-
-            ViewBag.SideBar = true;
-            ViewBag.Inclusao = false;
-            return View("Index", usuario);
-
         }
 
         [AllowAnonymous]
@@ -58,17 +55,23 @@ namespace GoAesthetic.Controllers
 
             try
             {
-                if (ValidaUsuario(usuario, ref resposta, true))
-                {
-                    var usuarioCadastrado = await loginNegocio.CadastraUsuario(usuario);
-                    RealizaLogInUsuario(usuarioCadastrado);
-                    resposta.Sucesso = true;
-
-                }
-                else
+                if (!ValidaUsuario(usuario, ref resposta, true))
                 {
                     resposta.Sucesso = false;
+                    return Json(resposta);
                 }
+
+                if(await loginNegocio.VerificaUsuarioExistente(usuario.Email))
+                {
+                    resposta.Sucesso = false;
+                    resposta.Dados.Add(new Erros { Id = "Email", Erro = "Email já cadastrado" });
+                    return Json(resposta);
+                }
+
+                var usuarioCadastrado = await loginNegocio.CadastraUsuario(usuario);
+                RealizaLogInUsuario(usuarioCadastrado);
+                resposta.Sucesso = true;
+
             }
             catch (Exception ex)
             {
@@ -78,8 +81,8 @@ namespace GoAesthetic.Controllers
             }
 
             return Json(resposta);
-
         }
+        
 
         [HttpPost("/Cadastro/AtualizaCadastro")]
         public async Task<IActionResult> AtualizaCadastro(UsuariosViewModel usuarioNovo)
@@ -89,18 +92,24 @@ namespace GoAesthetic.Controllers
 
             try
             {
-                if (ValidaUsuario(usuarioNovo, ref resposta, false))
-                {
-                    int idUsuarioLogado = BuscaIdUsuarioLogado();
-                    var usuarioAntigo = await loginNegocio.BuscaUsuarioId(idUsuarioLogado);
-
-                    await loginNegocio.AtualizaUsuario(usuarioAntigo, usuarioNovo);
-                    resposta.Sucesso = true;
-                }
-                else
+                if (!ValidaUsuario(usuarioNovo, ref resposta, false))
                 {
                     resposta.Sucesso = false;
+                    return Json(resposta);                   
+                }               
+
+                int idUsuarioLogado = BuscaIdUsuarioLogado();
+                var usuarioAntigo = await loginNegocio.BuscaUsuarioId(idUsuarioLogado);
+
+                if(usuarioAntigo.Email != usuarioNovo.Email && await loginNegocio.VerificaUsuarioExistente(usuarioNovo.Email))
+                {
+                    resposta.Sucesso = false;
+                    resposta.Dados.Add(new Erros { Id = "Email", Erro = "Email já cadastrado" });
+                    return Json(resposta);
                 }
+
+                await loginNegocio.AtualizaUsuario(usuarioAntigo, usuarioNovo);
+                resposta.Sucesso = true;
             }
             catch (Exception ex)
             {

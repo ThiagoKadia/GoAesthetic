@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[tbLog]
 (
 	[LOG_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [LOG_Erro] VARCHAR(MAX) NULL, 
-    [LOG_StackTrace] VARCHAR(MAX) NULL, 
-    [LOG_Data] DATETIME NULL
+    [LOG_Erro] VARCHAR(MAX) NOT NULL, 
+    [LOG_StackTrace] VARCHAR(MAX) NOT NULL, 
+    [LOG_Data] DATETIME NOT NULL
 )

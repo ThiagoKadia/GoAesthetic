@@ -35,6 +35,11 @@ namespace GoAestheticNegocio.Implementacao
                                                                 .FirstOrDefaultAsync();
         }
 
+        public async Task<bool> VerificaUsuarioExistente(string email)
+        {
+            return await Contexto.UsuariosViewModel.Where(x => x.Email == email).AnyAsync();
+        }
+
         public async Task<UsuariosViewModel> CadastraUsuario(UsuariosViewModel usuario)
         {
             using var transaction = Contexto.Database.BeginTransaction();
@@ -52,9 +57,9 @@ namespace GoAestheticNegocio.Implementacao
 
                 var primeiroMarcoEvolucao = new MarcosEvolucaoViewModel()
                 {
-                    Usuario = usuario.Id,
-                    Altura = usuario.Altura,
-                    Peso = usuario.Peso,
+                    UsuarioId = usuario.Id,
+                    Altura = usuario.Altura.Value,
+                    Peso = usuario.Peso.Value,
                     DataInclusao = DateTime.Now
                 };
                 Contexto.MarcosEvolucaoViewModel.Add(primeiroMarcoEvolucao);
@@ -69,7 +74,7 @@ namespace GoAestheticNegocio.Implementacao
         {
             var usuario = await Contexto.UsuariosViewModel.Where(x => x.Id == id).AsNoTracking().FirstAsync();
 
-            var pesoAltura = await Contexto.MarcosEvolucaoViewModel.Where(m => m.Usuario == usuario.Id)
+            var pesoAltura = await Contexto.MarcosEvolucaoViewModel.Where(m => m.UsuarioId == usuario.Id)
                                                                    .OrderByDescending(m => m.DataInclusao)
                                                                    .Select(m => new { Peso = m.Peso, Altura = m.Altura })
                                                                    .FirstAsync();
@@ -95,9 +100,9 @@ namespace GoAestheticNegocio.Implementacao
 
                 var novoMarcoEvolucao = new MarcosEvolucaoViewModel()
                 {
-                    Usuario = usuarioAntigo.Id,
-                    Altura = usuarioNovo.Altura,
-                    Peso = usuarioNovo.Peso,
+                    UsuarioId = usuarioAntigo.Id,
+                    Altura = usuarioNovo.Altura.Value,
+                    Peso = usuarioNovo.Peso.Value,
                     DataInclusao = DateTime.Now
                 };
 

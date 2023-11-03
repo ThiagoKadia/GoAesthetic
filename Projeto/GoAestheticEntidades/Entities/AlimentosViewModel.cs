@@ -15,6 +15,6 @@ namespace GoAestheticEntidades.Entities
         public int RegistroRefeicaoId { get; set; }
 
         [Column("ALM_Quantidade")]
-        public double? Quantidade { get; set; }
+        public double Quantidade { get; set; }
     }
 }
