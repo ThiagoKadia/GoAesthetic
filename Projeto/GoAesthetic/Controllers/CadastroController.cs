@@ -8,21 +8,48 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GoAesthetic.Controllers
 {
-    [AllowAnonymous]
     public class CadastroController : BaseController
     {
         public CadastroController(GoAestheticDbContext context) : base(false, context)
         {
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             if (VerificaUsuarioLogado())
+            {
                 return RedirectToAction("Index", "Home");
+            }
             else
+            {
+                ViewBag.Inclusao = true;
                 return View();
+            }
         }
 
+        public async Task<IActionResult> Editar()
+        {
+            var loginNegocio = new LoginNegocio(Contexto);
+            UsuariosViewModel usuario = new UsuariosViewModel();
+            try
+            {
+                int idUsuarioLogado = BuscaIdUsuarioLogado();
+                usuario = await loginNegocio.BuscaUsuarioId(idUsuarioLogado);
+            }
+            catch (Exception ex)
+            {
+                await ErroNegocio.EscreveErroBanco(ex);
+                RedirectToAction("Index", "Erro");
+            }
+
+            ViewBag.SideBar = true;
+            ViewBag.Inclusao = false;
+            return View("Index", usuario);
+
+        }
+
+        [AllowAnonymous]
         [HttpPost("/Cadastro/RealizaCadastro")]
         public async Task<IActionResult> RealizaCadastro(UsuariosViewModel usuario)
         {
@@ -31,7 +58,7 @@ namespace GoAesthetic.Controllers
 
             try
             {
-                if(ValidaUsuarioCadastro(usuario, ref resposta))
+                if (ValidaUsuario(usuario, ref resposta, true))
                 {
                     var usuarioCadastrado = await loginNegocio.CadastraUsuario(usuario);
                     RealizaLogInUsuario(usuarioCadastrado);
@@ -43,7 +70,7 @@ namespace GoAesthetic.Controllers
                     resposta.Sucesso = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 resposta.Erro = true;
                 resposta.Mensagem = ex.Message;
@@ -54,13 +81,44 @@ namespace GoAesthetic.Controllers
 
         }
 
-        private bool ValidaUsuarioCadastro(UsuariosViewModel usuario, ref RespostaPadrao resposta)
+        [HttpPost("/Cadastro/AtualizaCadastro")]
+        public async Task<IActionResult> AtualizaCadastro(UsuariosViewModel usuarioNovo)
+        {
+            var loginNegocio = new LoginNegocio(Contexto);
+            var resposta = new RespostaPadrao();
+
+            try
+            {
+                if (ValidaUsuario(usuarioNovo, ref resposta, false))
+                {
+                    int idUsuarioLogado = BuscaIdUsuarioLogado();
+                    var usuarioAntigo = await loginNegocio.BuscaUsuarioId(idUsuarioLogado);
+
+                    await loginNegocio.AtualizaUsuario(usuarioAntigo, usuarioNovo);
+                    resposta.Sucesso = true;
+                }
+                else
+                {
+                    resposta.Sucesso = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                resposta.Erro = true;
+                resposta.Mensagem = ex.Message;
+                await ErroNegocio.EscreveErroBanco(ex);
+            }
+
+            return Json(resposta);
+        }
+
+        private bool ValidaUsuario(UsuariosViewModel usuario, ref RespostaPadrao resposta, bool cadastro)
         {
             bool valida = true;
 
             if (string.IsNullOrEmpty(usuario.Nome))
             {
-                resposta.Dados.Add(new Erros{ Id = "Nome", Erro = "Digite um nome de usuário" });
+                resposta.Dados.Add(new Erros { Id = "Nome", Erro = "Digite um nome de usuário" });
                 valida = false;
             }
             else if (usuario.Nome.Length < 5)
@@ -85,12 +143,12 @@ namespace GoAesthetic.Controllers
                 valida = false;
             }
 
-            if (string.IsNullOrEmpty(usuario.Senha))
+            if (cadastro && string.IsNullOrEmpty(usuario.Senha))
             {
                 resposta.Dados.Add(new Erros { Id = "Senha", Erro = "Digite uma senha" });
                 valida = false;
             }
-            else if (usuario.Senha.Length < 5)
+            else if (!string.IsNullOrEmpty(usuario.Senha) && usuario.Senha.Length < 5)
             {
                 resposta.Dados.Add(new Erros { Id = "Senha", Erro = "Digite uma senha com mais de 5 letras" });
                 valida = false;

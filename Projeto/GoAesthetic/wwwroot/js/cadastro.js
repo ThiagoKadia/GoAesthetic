@@ -1,44 +1,52 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.getElementById('cadastro-form');
+$('#btnSalvar').on("click", function () {
+    var url = "";
+    var tituloAlert = "";
+    var textoAlert = "";
 
-    loginForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        $.ajax({
-            type: 'POST',
-            url: '/Cadastro/RealizaCadastro',
-            data: {
-                Nome: $('#Nome').val(),
-                Email: $('#Email').val(),
-                Senha: $('#Senha').val(),
-                DataNascimento: $('#DataNascimento').val(),
-                Sexo: $('#Sexo').val(),
-                Altura: $('#Altura').val(),
-                Peso: $('#Peso').val().replace('.', ','),
-            },
-            datatype: "JSON",
-            ContentType: "application/json",
-            success: (resultado) => {
-                if (resultado.sucesso) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Cadastro Realizado',
-                        text: 'Seu cadastro foi criado com sucesso!',
-                        customClass: {
-                            popup: 'swal-custom-popup',
-                            content: 'swal-custom-text'
-                        },
-                    }).then(function () {
-                        window.location.href = '/Home/Index';
-                    })
-                }
-                else if (resultado.erro) {
-                    window.location.href = '/Erro/Index';
-                }
-                else {
-                    informaErros(resultado.dados);
-                }
+    if ($('#Inclusao').val()) {
+        url = '/Cadastro/RealizaCadastro';
+        tituloAlert = 'Cadastro Realizado';
+        textoAlert = 'Seu cadastro foi criado com sucesso!';
+    }
+    else {
+        url = '/Cadastro/AtualizaCadastro';
+        tituloAlert = 'Cadastro Atualizado';
+        textoAlert = 'Seu cadastro foi atualizado com sucesso!';
+    }
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+            Nome: $('#Nome').val(),
+            Email: $('#Email').val(),
+            Senha: $('#Senha').val(),
+            DataNascimento: $('#DataNascimento').val(),
+            Sexo: $('#Sexo').val(),
+            Altura: $('#Altura').val(),
+            Peso: $('#Peso').val().replace('.', ','),
+        },
+        datatype: "JSON",
+        ContentType: "application/json",
+        success: (resultado) => {
+            if (resultado.sucesso) {
+                Swal.fire({
+                    icon: 'success',
+                    title: tituloAlert,
+                    text: textoAlert,
+                    customClass: {
+                        popup: 'swal-custom-popup',
+                        content: 'swal-custom-text'
+                    },
+                }).then(function () {
+                    window.location.href = '/Home/Index';
+                })
             }
-        });
-    })
+            else if (resultado.erro) {
+                window.location.href = '/Erro/Index';
+            }
+            else {
+                informaErros(resultado.dados);
+            }
+        }
+    });
 });
