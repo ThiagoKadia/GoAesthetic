@@ -1,13 +1,34 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GoAesthetic.Controllers.ControllersBase;
+using GoAestheticEntidades;
+using GoAestheticNegocio.Implementacao;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GoAesthetic.Controllers
 {
-    public class GaleriaController : Controller 
+    public class GaleriaController : BaseController 
     {
-        public IActionResult Index()
+        public GaleriaController(GoAestheticDbContext context) : base(context)
         {
-            ViewBag.SideBar = true;
-            return View();
         }
+
+        public async Task <IActionResult> Index()
+        {
+            var marcosNegocio = new MarcosEvolucaoNegocio(Contexto);
+
+            try
+            {
+                int idUsuarioLogado = BuscaIdUsuarioLogado();
+                var listaMarcos = await marcosNegocio.BuscarMarcosComFotos(idUsuarioLogado);
+                return View(listaMarcos);
+            }
+            catch (Exception ex)
+            {
+                await ErroNegocio.EscreveErroBanco(ex);
+                return RedirectToAction("Index", "Erro");
+            }
+            
+        }
+            
+        
     }
 }

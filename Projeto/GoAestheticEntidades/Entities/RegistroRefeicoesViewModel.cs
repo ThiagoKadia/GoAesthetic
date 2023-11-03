@@ -9,12 +9,12 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("USR_Id")]
-        public int Usuario { get; set; }
+        public int UsuarioId { get; set; }
 
         [Column("RRF_Nome")]
         public string Nome { get; set; }
 
         [Column("RRF_Data")]
-        public DateTime? DataInclusao { get; set; }
+        public DateTime DataInclusao { get; set; }
     }
 }

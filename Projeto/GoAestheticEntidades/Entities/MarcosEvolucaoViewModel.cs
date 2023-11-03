@@ -10,21 +10,24 @@ namespace GoAestheticEntidades.Entities
         public int Id { get; set; }
 
         [Column("USR_Id")]
-        public int Usuario { get; set; }
+        public int UsuarioId { get; set; }
 
         [Column("MEV_Altura")]
-        public double? Altura { get; set; }
+        public double Altura { get; set; }
 
         [Column("MEV_Peso")]
-        public double? Peso { get; set; }
+        public double Peso { get; set; }
 
         [Column("MEV_NomeArquivoFoto")]
         public string? NomeArquivoFoto { get; set; }
 
         [Column("MEV_Data")]
-        public DateTime? DataInclusao { get; set; }
+        public DateTime DataInclusao { get; set; }
 
         [NotMapped]
         public IFormFile Arquivo { get; set; }
+
+        [NotMapped]
+        public Uri UrlArquivoStorage { get; set; }
     }
 }

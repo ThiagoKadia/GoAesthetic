@@ -102,7 +102,7 @@ namespace GoAesthetic.Controllers
 
             foreach(var alimento in listaAlimentosAdicionados)
             {
-                if(!alimento.Quantidade.HasValue || alimento.Quantidade.Value == 0)
+                if(alimento.Quantidade == 0)
                 {
                     resposta.Dados.Add(new Erros { Id = "Refeicao", Erro = "Há um alimento com a quantidade incorreta" });
                     valida = false;
