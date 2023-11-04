@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using GoAestheticComuns.Constantes;
 using GoAestheticNegocio.Helpers;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,6 @@ builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(20);
 });
-
 
 builder.Services.AddMvc();
 
@@ -46,6 +46,10 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("RequirimentoMinimoAcesso",
     policy => policy.RequireRole(roles));
 });
+
+CultureInfo cultureInfo = new CultureInfo("pt-BR");
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
 var app = builder.Build();
 

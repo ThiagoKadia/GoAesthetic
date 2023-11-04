@@ -12,7 +12,7 @@ $('#btnCalcularAlimento').on("click", function () {
         url: '/RegistrarRefeicoes/BuscaInformacoesAlimentos',
         data: {
             Id: $('#listaAlimentos option').filter(':selected').val(),
-            Quantidade: $('#quantidade').val()
+            Quantidade: $('#quantidade').val().replace('.', ',')
         },
         datatype: "JSON",
         ContentType: "application/json",
@@ -25,11 +25,11 @@ $('#btnCalcularAlimento').on("click", function () {
 
                 var novaLinha = '<tr id="linhaInformacaoAlimento">'+
                                      '<td id="nomeAlimentoInformacao">' + resultado.alimento.nome + '</td>' +
-                                     '<td id="quantidadeAlimentoInformacao">' + resultado.alimento.quantidade + '</td>' +
-                                     '<td id="energiaAlimentoInformacao">' + resultado.alimento.energia + '</td>' +
-                                     '<td id="proteinaAlimentoInformacao">' + resultado.alimento.proteina + '</td>' +
-                                     '<td id="carboidratosAlimentoInformacao">' + resultado.alimento.carboidratos + '</td>' +
-                                     '<td id="lipideosAlimentoInformacao">' + resultado.alimento.lipideos + '</td>' +
+                                     '<td id="quantidadeAlimentoInformacao">' + FormataNumero(resultado.alimento.quantidade) + '</td>' +
+                                     '<td id="energiaAlimentoInformacao">' + FormataNumero(resultado.alimento.energia) + '</td>' +
+                                     '<td id="proteinaAlimentoInformacao">' + FormataNumero(resultado.alimento.proteina) + '</td>' +
+                                     '<td id="carboidratosAlimentoInformacao">' + FormataNumero(resultado.alimento.carboidratos) + '</td>' +
+                                     '<td id="lipideosAlimentoInformacao">' + FormataNumero(resultado.alimento.lipideos) + '</td>' +
                                 '</tr > ';
                 $("#resumoAlimento tbody").append(novaLinha);
             }
@@ -65,11 +65,11 @@ $('#btnAdicionarRefeicao').on("click", function () {
     var novaLinha = '<tr id="' + idLinhaRefeicao + '" >' +
                          '<td><a href="#" onclick="RemoverLinha(' + idLinhaRefeicao + ')"><img src="/img/delete-ico.png" style="max-height:25px;max-width:25px;"></a></td>' +
                          '<td>' + alimentoAdicionado.Nome + '</td>' +
-                         '<td>' + alimentoAdicionado.Quantidade + '</td>' +
-                         '<td>' + alimentoAdicionado.Energia + '</td>' +
-                         '<td>' + alimentoAdicionado.Proteina + '</td>' +
-                         '<td>' + alimentoAdicionado.Carboidratos + '</td>' +
-                         '<td>' + alimentoAdicionado.Lipideos + '</td>' +
+                         '<td>' + FormataNumero(alimentoAdicionado.Quantidade) + '</td>' +
+                         '<td>' + FormataNumero(alimentoAdicionado.Energia) + '</td>' +
+                         '<td>' + FormataNumero(alimentoAdicionado.Proteina) + '</td>' +
+                         '<td>' + FormataNumero(alimentoAdicionado.Carboidratos) + '</td>' +
+                         '<td>' + FormataNumero(alimentoAdicionado.Lipideos) + '</td>' +
                     '</tr > ';
     $("#Refeicao tbody").append(novaLinha);
     $('#linhaInformacaoAlimento').remove();
@@ -105,12 +105,12 @@ function CalculaResumoRefeicao() {
     $('#linhaResumoRefeicao').remove();
 
     var novaLinha = '<tr id="linhaResumoRefeicao">' +
-        '<td>' + totalQuantidade + '</td>' +
-        '<td>' + totalEnergia + '</td>' +
-        '<td>' + totalProteina + '</td>' +
-        '<td>' + totalCarboidratos + '</td>' +
-        '<td>' + totalLipideos + '</td>' +
-        '</tr > ';
+                         '<td>' + FormataNumero(totalQuantidade) + '</td>' +
+                         '<td>' + FormataNumero(totalEnergia) + '</td>' +
+                         '<td>' + FormataNumero(totalProteina) + '</td>' +
+                         '<td>' + FormataNumero(totalCarboidratos) + '</td>' +
+                         '<td>' + FormataNumero(totalLipideos) + '</td>' +
+                    '</tr > ';
     $("#resumoRefeicao tbody").append(novaLinha);
 }
 
@@ -121,7 +121,7 @@ $('#btnSalvar').on("click", function () {
     listaRefeicoesAdicionadas.forEach((element) => {
         var alimentoAdicionado = {
             InformacaoAlimentoId: element.IdAlimentoAdicionado,
-            Quantidade: element.Quantidade
+            Quantidade: element.Quantidade.replace('.', ',')
         }
         refeicoesQuantidade.push(alimentoAdicionado);
     });

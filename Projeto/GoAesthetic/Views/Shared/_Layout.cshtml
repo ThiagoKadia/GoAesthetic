@@ -34,7 +34,25 @@
                     <button>
                         <span>
                             <i class="material-symbols-outlined"> restaurant</i>
-                            <span>Registrar Alimento</span>
+                            <span>Registrar Refeição</span>
+                        </span>
+                    </button>
+                </a>
+
+                <a href="/MarcosEvolucao">
+                    <button>
+                        <span>
+                            <i class="material-symbols-outlined"> monitoring</i>
+                            <span>Marcos de Evolução</span>
+                        </span>
+                    </button>
+                </a>
+
+                <a href="/HistoricoRefeicao">
+                    <button>
+                        <span>
+                            <i class="material-symbols-outlined"> receipt_long</i>
+                            <span>Histórico de Refeições</span>
                         </span>
                     </button>
                 </a>
@@ -66,6 +84,17 @@
                     </button>
                 </a>
 
+                <a href="/Login" class="logout-button">
+                    <button>
+                        <span>
+                            <i class="material-symbols-outlined"> logout</i>
+                            <span>Encerrar Sessão</span>
+                        </span>
+                    </button>
+                </a>
+
+                
+
             </nav>
         </aside>
     }
@@ -80,5 +109,7 @@
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/js/site.js"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </html>

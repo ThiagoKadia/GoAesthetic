@@ -1,31 +1,36 @@
-﻿@model GoAestheticEntidades.Entities.MarcosEvolucaoViewModel
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarcoEvolucao</title>
+    <link rel="stylesheet" href="~/css/MarcosEvolucao.css">
+</head>
+<body>
+    <div class="marcosEevolucao">
+        <h1>Marco de Evolução</h1>
+
+        <!-- Formulário para cadastrar um novo marco -->
+        <form id="cadastro-marco">
+            <label for="altura">Altura:</label>
+            <input type="text" id="altura" name="altura" placeholder="Altura em cm" required>
+            <label for="peso">Peso:</label>
+            <input type="text" id="peso" name="peso" placeholder="Peso em kg" required>
+
+            <label for="foto">Foto (apenas .jpg, .jpeg, .png):</label>
+            <input type="file" id="foto" name="foto" accept=".jpg, .jpeg, .png" onchange="previewImage(this)">
 
 
-@if (ViewBag.erro != null)
-{
-    <h3>@ViewBag.erro</h3>
-}
-@using (Html.BeginForm("Edit", "MarcosEvolucao", method: FormMethod.Post, htmlAttributes: new { enctype = "Multipart/Form-Data" }))
-{
-    <input asp-for="Arquivo" type="file">
 
+            <div class="image-preview">
+                <img id="preview">
+            </div>
 
-    <img id="imgPreview" src="@ViewBag.urlImagem" class="img-responsive" width="300">
-    <img id="imgPreview" src="@ViewBag.urlImagem2" class="img-responsive" width="300">
-    <img id="imgPreview" src="@ViewBag.urlImagem3" class="img-responsive" width="300">
-    <br />
-    <br />
-    <br />
-    <br />
-    <input type="submit" value="Submit">
-}
+            <button type="submit">Cadastrar</button>
+        </form>
 
-<script>
-    function exibirImagem() {
-        var oFReader = new FileReader();
-        oFReader.readAsDataURL(document.getElementById("Arquivo").files[0]);
-        oFReader.onload = function (oFREvent) {
-            document.getElementById("imgPreview").src = oFREvent.target.result;
-        };
-    }
-</script>
+    </div>
+    
+    <script src="~/js/marcosEvolucao.js"></script>
+</body>
+</html>
