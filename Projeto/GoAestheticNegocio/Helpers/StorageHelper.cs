@@ -13,12 +13,15 @@ namespace GoAestheticNegocio.Helpers
 {
     public class StorageHelper
     {
-        BlobContainerClient ConexaoBlobConteiner;
+        private static BlobContainerClient ConexaoBlobConteiner;
 
         public StorageHelper()
         {
-            BlobServiceClient conexaoBlob = new BlobServiceClient(EnvironmentHelper.BuscaStringConexaoStorage().Result);
-            ConexaoBlobConteiner = conexaoBlob.GetBlobContainerClient(Conexoes.ConteinerPadrao);
+            if(ConexaoBlobConteiner == null)
+            {
+                BlobServiceClient conexaoBlob = new BlobServiceClient(EnvironmentHelper.BuscaStringConexaoStorage().Result);
+                ConexaoBlobConteiner = conexaoBlob.GetBlobContainerClient(Conexoes.ConteinerPadrao);
+            }
         }
 
         public async Task SalvarImagem(MemoryStream arquivo, string nomeArquivo)

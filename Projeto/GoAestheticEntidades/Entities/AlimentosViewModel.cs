@@ -16,5 +16,8 @@ namespace GoAestheticEntidades.Entities
 
         [Column("ALM_Quantidade")]
         public double Quantidade { get; set; }
+
+        [ForeignKey("InformacaoAlimentoId")]
+        public virtual InformacoesAlimentosViewModel InformacoesAlimento { get; set; }
     }
 }

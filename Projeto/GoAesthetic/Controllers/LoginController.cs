@@ -11,22 +11,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GoAesthetic.Controllers
 {
-    [AllowAnonymous]
     public class LoginController : BaseController
-    {    
+    {
         public LoginController(GoAestheticDbContext context) : base(false, context)
         {
         }
 
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
-            if(VerificaUsuarioLogado())
+            if (VerificaUsuarioLogado())
                 return RedirectToAction("Index", "Home");
             else
                 return View();
         }
 
+        [AllowAnonymous]
         [HttpPost("/Login/RealizaLogin")]
         public async Task<IActionResult> RealizaLogin(UsuariosViewModel usuario)
         {
@@ -53,6 +54,27 @@ namespace GoAesthetic.Controllers
 
                 RealizaLogInUsuario(usuarioLogado);
 
+                resposta.Sucesso = true;
+            }
+            catch (Exception ex)
+            {
+                resposta.Erro = true;
+                resposta.Mensagem = ex.Message;
+                await ErroNegocio.EscreveErroBanco(ex);
+            }
+
+            return Json(resposta);
+        }
+
+
+        [HttpPost("/Login/RealizaLogout")]
+        public async Task<IActionResult> RealizaLogout()
+        {
+            var resposta = new RespostaPadrao();
+
+            try
+            {
+                RealizaLogOutUsuario();
                 resposta.Sucesso = true;
             }
             catch (Exception ex)

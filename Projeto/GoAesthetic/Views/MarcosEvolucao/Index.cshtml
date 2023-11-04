@@ -9,16 +9,14 @@
 <body>
     <div class="marcosEevolucao">
         <h1>Marco de Evolução</h1>
-
-        <!-- Formulário para cadastrar um novo marco -->
-        <form id="cadastro-marco">
+        <form id="cadastro-marco" enctype="Multipart/Form-Data">
             <label for="altura">Altura:</label>
-            <input type="text" id="altura" name="altura" placeholder="Altura em cm" required>
+            <input type="text" id="Altura" name="altura" placeholder="Altura em cm" required>
             <label for="peso">Peso:</label>
-            <input type="text" id="peso" name="peso" placeholder="Peso em kg" required>
+            <input type="text" id="Peso" name="peso" placeholder="Peso em kg" required>
 
             <label for="foto">Foto (apenas .jpg, .jpeg, .png):</label>
-            <input type="file" id="foto" name="foto" accept=".jpg, .jpeg, .png" onchange="previewImage(this)">
+            <input type="file" id="Arquivo" name="Arquivo" accept=".jpg, .jpeg, .png" onchange="previewImage(this)">
 
 
 
@@ -26,11 +24,14 @@
                 <img id="preview">
             </div>
 
-            <button type="submit">Cadastrar</button>
+            <button id="btnEnviar" type="button">Cadastrar</button>
         </form>
 
     </div>
-    
-    <script src="~/js/marcosEvolucao.js"></script>
 </body>
 </html>
+
+@section Scripts{
+<script src="~/js/marcosEvolucao.js"></script>
+<script src="~/js/informaErros.js"></script>
+}

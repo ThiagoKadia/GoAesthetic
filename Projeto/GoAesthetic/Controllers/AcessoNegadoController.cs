@@ -6,7 +6,7 @@ namespace GoAesthetic.Controllers
 {
     public class AcessoNegadoController : BaseController
     {
-        public AcessoNegadoController(bool sideBar, GoAestheticDbContext context) : base(false, context)
+        public AcessoNegadoController(GoAestheticDbContext context) : base(false, context)
         {
         }
 

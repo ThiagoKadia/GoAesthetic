@@ -48,37 +48,8 @@
                 <br>
                 <br>
 
-                <h2>Refeição:</h2>
-                <table border="1" id="Refeicao">
-                    <tr>
-                        <th>Remover</th>
-                        <th>Alimento</th>
-                        <th>Quantidade (g)</th>
-                        <th>Calorias (kcal)</th>
-                        <th>Proteínas (g)</th>
-                        <th>Carboidratos (g)</th>
-                        <th>Gorduras (g)</th>
-                    </tr>
-                </table>
-                <br />
+                    @await Html.PartialAsync("pvDetalhesRefeicao")
 
-                <h2>Resumo:</h2>
-                <table border="1" id="resumoRefeicao">
-                    <tr>
-                        <th>Quantidade (g)</th>
-                        <th>Calorias (kcal)</th>
-                        <th>Proteínas (g)</th>
-                        <th>Carboidratos (g)</th>
-                        <th>Gorduras (g)</th>
-                    </tr>
-                    <tr id="linhaResumoRefeicao">
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                </table>
                 <br />
                 <button id="btnSalvar" type="button">Salvar</button>
             </form>

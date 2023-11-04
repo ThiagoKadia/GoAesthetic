@@ -16,5 +16,14 @@ namespace GoAestheticEntidades.Entities
 
         [Column("RRF_Data")]
         public DateTime DataInclusao { get; set; }
+
+        [NotMapped]
+        public List<AlimentosViewModel> AlimentosAssociados { get; set; }
+
+        [NotMapped]
+        public double TotalQuantidade { get; set; }
+
+        [NotMapped]
+        public double TotalCalorias { get; set; }
     }
 }
