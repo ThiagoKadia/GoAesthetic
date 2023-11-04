@@ -75,6 +75,15 @@
                     </button>
                 </a>
 
+                <a href="/Login" class="logout-button">
+                    <button>
+                        <span>
+                            <i class="material-symbols-outlined"> logout</i>
+                            <span>Encerrar Sessão</span>
+                        </span>
+                    </button>
+                </a>
+
                 
 
             </nav>
@@ -91,6 +100,7 @@
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="~/js/site.js"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </html>
