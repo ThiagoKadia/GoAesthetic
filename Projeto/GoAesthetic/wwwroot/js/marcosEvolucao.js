@@ -1,5 +1,5 @@
 ﻿
-document.getElementById('foto').addEventListener('change', function (e) {
+document.getElementById('Arquivo').addEventListener('change', function (e) {
     const preview = document.getElementById('preview');
     const file = e.target.files[0];
 
@@ -24,7 +24,7 @@ document.getElementById('foto').addEventListener('change', function (e) {
     }
 });
 // Adicione este código ao seu arquivo marcosEvolucao.js
-document.getElementById('foto').addEventListener('change', function (e) {
+document.getElementById('Arquivo').addEventListener('change', function (e) {
     const preview = document.getElementById('preview');
     const file = e.target.files[0];
 
@@ -47,4 +47,44 @@ document.getElementById('foto').addEventListener('change', function (e) {
     } else {
         preview.src = '';
     }
+});
+
+
+$('#btnEnviar').on("click", function () {
+    var model = new FormData();
+
+    model.append("Altura", $('#Altura').val().replace('.', ','));
+    model.append("Peso", $('#Peso').val().replace('.', ','));
+    var fileInput = $('#Arquivo')[0];
+    var file = fileInput.files[0];
+    model.append("Arquivo", file);
+
+    $.ajax({
+        type: 'POST',
+        url: '/MarcosEvolucao/CadastraMarco',
+        data: model,
+        contentType: false,
+        processData: false,
+        success: (resultado) => {
+            if (resultado.sucesso) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Marco Enviado',
+                    text: 'Marco de Evolução Enviado com Sucesso!',
+                    customClass: {
+                        popup: 'swal-custom-popup',
+                        content: 'swal-custom-text'
+                    },
+                }).then(function () {
+                    window.location.href = '/Home/Index';
+                })
+            }
+            else if (resultado.erro) {
+                window.location.href = '/Erro/Index';
+            }
+            else {
+                informaErros(resultado.dados);
+            }
+        }
+    });
 });

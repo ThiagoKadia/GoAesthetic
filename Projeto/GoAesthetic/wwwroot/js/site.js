@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (logoutButton) {
         logoutButton.addEventListener("click", function (e) {
-            e.preventDefault(); // Evitar o comportamento padrão do link
+            e.preventDefault();
 
             Swal.fire({
                 title: "Encerrar Sessão",
@@ -20,7 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 cancelButtonText: "Cancelar",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Redirecione o usuário para a página de logout
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Login/RealizaLogout',
+                        datatype: "JSON",                       
+                    });
                     window.location.href = "/Login";
                 }
             });
