@@ -1,0 +1,93 @@
+﻿@using GoAestheticEntidades.Entities
+@model RegistroRefeicoesViewModel;
+
+@{
+    var somaValores = new AlimentosViewModel();
+    somaValores.InformacoesAlimento = new InformacoesAlimentosViewModel();
+}
+
+<h2>Refeição:</h2>
+<table border="1" id="Refeicao">
+    <tr>
+        @if (Model == null)
+        {
+            <th>Remover</th>
+        }
+        <th>Alimento</th>
+        <th>Quantidade (g)</th>
+        <th>Calorias (kcal)</th>
+        <th>Proteínas (g)</th>
+        <th>Carboidratos (g)</th>
+        <th>Gorduras (g)</th>
+    </tr>
+
+
+    @{
+        if (Model != null)
+        {
+            somaValores.Quantidade = 0;
+            somaValores.InformacoesAlimento.Energia = 0;
+            somaValores.InformacoesAlimento.Proteina = 0;
+            somaValores.InformacoesAlimento.Carboidratos = 0;
+            somaValores.InformacoesAlimento.Lipideos = 0;
+
+            foreach (var alimento in Model.AlimentosAssociados)
+            {
+                alimento.InformacoesAlimento.Energia = alimento.InformacoesAlimento.Energia.HasValue ? alimento.InformacoesAlimento.Energia : 0;
+                alimento.InformacoesAlimento.Proteina = alimento.InformacoesAlimento.Proteina.HasValue ? alimento.InformacoesAlimento.Proteina : 0;
+                alimento.InformacoesAlimento.Carboidratos = alimento.InformacoesAlimento.Carboidratos.HasValue ? alimento.InformacoesAlimento.Carboidratos : 0;
+                alimento.InformacoesAlimento.Lipideos = alimento.InformacoesAlimento.Lipideos.HasValue ? alimento.InformacoesAlimento.Lipideos : 0;
+                @:<tr>
+                    @:<td>
+                        @:@alimento.InformacoesAlimento.Nome
+                    @:</td>
+                     @:<td>
+                        @:@alimento.Quantidade
+                    @:</td>
+                     @:<td>
+                        @:@alimento.InformacoesAlimento.Energia.Value.ToString("0.##")
+                    @:</td>
+                     @:<td>
+                        @:@alimento.InformacoesAlimento.Proteina.Value.ToString("0.##")
+                    @:</td>
+                     @:<td>
+                        @:@alimento.InformacoesAlimento.Carboidratos.Value.ToString("0.##")
+                    @:</td>
+                     @:<td>
+                        @:@alimento.InformacoesAlimento.Lipideos.Value.ToString("0.##")
+                    @:</td>
+                @:</tr>
+
+
+                somaValores.Quantidade += alimento.Quantidade;
+                somaValores.InformacoesAlimento.Energia += alimento.InformacoesAlimento.Energia;
+                somaValores.InformacoesAlimento.Proteina += alimento.InformacoesAlimento.Proteina;
+                somaValores.InformacoesAlimento.Carboidratos += alimento.InformacoesAlimento.Carboidratos;
+                somaValores.InformacoesAlimento.Lipideos += alimento.InformacoesAlimento.Lipideos;
+            }
+        }
+    }   
+</table>
+<br />
+
+<h2>Resumo:</h2>
+<table border="1" id="resumoRefeicao">
+    <tr>
+        <th>Quantidade (g)</th>
+        <th>Calorias (kcal)</th>
+        <th>Proteínas (g)</th>
+        <th>Carboidratos (g)</th>
+        <th>Gorduras (g)</th>
+    </tr>
+    <tr id="linhaResumoRefeicao">
+        @if (Model != null)
+        {
+            <td>@somaValores.Quantidade</td>
+            <td>@somaValores.InformacoesAlimento.Energia.Value.ToString("0.##")</td>
+            <td>@somaValores.InformacoesAlimento.Proteina.Value.ToString("0.##")</td>
+            <td>@somaValores.InformacoesAlimento.Carboidratos.Value.ToString("0.##") </td>
+            <td>@somaValores.InformacoesAlimento.Lipideos.Value.ToString("0.##")</td>
+        }
+
+    </tr>
+</table>

@@ -32,6 +32,31 @@ namespace GoAesthetic.Controllers
             return View();
         }
 
+        public async Task<IActionResult> InformacoesRefeicao(int refeicaoId)
+        {
+            var alimentoNegocio = new AlimentosNegocio(Contexto);
+            var registroRefeicao = new RegistroRefeicoesViewModel();
+
+            try
+            {
+                int idUsuarioRefeicao = await Contexto.RegistroRefeicoesViewModel.Where(r => r.Id == refeicaoId)
+                                                                                 .Select(x => x.UsuarioId)
+                                                                                 .FirstAsync();
+                int idUsuarioLogado = BuscaIdUsuarioLogado();
+
+                if(idUsuarioRefeicao != idUsuarioLogado)
+                    return RedirectToAction("Index", "AcessoNegado");
+
+                registroRefeicao = await alimentoNegocio.BuscaRegistroRefeicao(refeicaoId);
+                return View("ResumoRefeicao", registroRefeicao);
+            }
+            catch (Exception ex)
+            {               
+                await ErroNegocio.EscreveErroBanco(ex);
+                return RedirectToAction("Index", "Erro");
+            }
+        }
+
         [HttpPost("/RegistrarRefeicoes/BuscaInformacoesAlimentos")]
         public async Task<IActionResult> BuscaInformacoesAlimentos(InformacoesAlimentosViewModel alimentoBuscar)
         {

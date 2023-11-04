@@ -19,7 +19,7 @@ namespace GoAestheticNegocio.Implementacao
 
         public async Task<InformacoesAlimentosViewModel> BuscaInformacaoAlimento(int id, double quantidadeGramas)
         {
-            
+
             var alimento = await Contexto.InformacoesAlimentosViewModel.Where(a => a.Id == id).FirstAsync();
 
             alimento.Quantidade = quantidadeGramas;
@@ -27,7 +27,7 @@ namespace GoAestheticNegocio.Implementacao
             CalculaValoresPorGrama(ref alimento);
 
             MultiplicaValorPelaQuantidade(ref alimento);
-            
+
             return alimento;
         }
 
@@ -63,7 +63,7 @@ namespace GoAestheticNegocio.Implementacao
                 var refeicao = new RegistroRefeicoesViewModel()
                 {
                     Nome = nomeRefeicao,
-                    DataInclusao =  DateTime.Now,
+                    DataInclusao = DateTime.Now,
                     UsuarioId = idUsuarioLogado
                 };
 
@@ -77,6 +77,56 @@ namespace GoAestheticNegocio.Implementacao
 
                 transaction.Commit();
             }
+        }
+
+        public async Task<List<RegistroRefeicoesViewModel>> BuscaListaRefeicoesUsuario(int idUsuario)
+        {
+            var listaRefeicoes = await Contexto.RegistroRefeicoesViewModel.Where(r => r.UsuarioId == idUsuario)
+                                                                          .AsNoTracking()
+                                                                          .ToListAsync();
+
+            foreach (var refeicao in listaRefeicoes)
+            {
+                refeicao.TotalQuantidade = await Contexto.AlimentosViewModel.Where(a=> a.RegistroRefeicaoId == refeicao.Id)
+                                                                            .Select(a => a.Quantidade)
+                                                                            .SumAsync();
+
+                refeicao.TotalCalorias = await Contexto.AlimentosViewModel.Where(a => a.RegistroRefeicaoId == refeicao.Id && a.InformacoesAlimento.Energia.HasValue)
+                                                                          .Select(a => a.InformacoesAlimento.Energia.Value)
+                                                                          .SumAsync();
+            }
+
+            return listaRefeicoes;
+        }
+
+        public async Task<RegistroRefeicoesViewModel> BuscaRegistroRefeicao(int idRefeicao)
+        {
+            var refeicao = await Contexto.RegistroRefeicoesViewModel.AsNoTracking().FirstAsync(r => r.Id == idRefeicao);
+
+            refeicao.AlimentosAssociados = await Contexto.AlimentosViewModel.Where(a => a.RegistroRefeicaoId == idRefeicao)
+                                                                            .Select( a => new AlimentosViewModel
+                                                                            {
+                                                                                Id = a.Id,
+                                                                                InformacaoAlimentoId = a.InformacaoAlimentoId,
+                                                                                Quantidade = a.Quantidade,
+                                                                                RegistroRefeicaoId = refeicao.Id,
+                                                                                InformacoesAlimento = a.InformacoesAlimento
+                                                                            })
+                                                                            .AsNoTracking()
+                                                                            .ToListAsync();
+
+            foreach (var alimento in refeicao.AlimentosAssociados)
+            {
+                var infoAlimento = alimento.InformacoesAlimento;
+                infoAlimento.Quantidade = alimento.Quantidade;
+
+                CalculaValoresPorGrama(ref infoAlimento);
+                MultiplicaValorPelaQuantidade(ref infoAlimento);
+
+                alimento.InformacoesAlimento = infoAlimento;
+            }
+
+            return refeicao;
         }
     }
 }

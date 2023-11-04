@@ -6,7 +6,7 @@ namespace GoAesthetic.Controllers
 {
     public class ErroController : BaseController
     {
-        public ErroController(bool sideBar, GoAestheticDbContext context) : base(false, context)
+        public ErroController(GoAestheticDbContext context) : base(false, context)
         {
         }
 
