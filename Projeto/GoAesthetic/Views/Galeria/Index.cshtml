@@ -1,13 +1,13 @@
 ﻿@model List<GoAestheticEntidades.Entities.MarcosEvolucaoViewModel>
 
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="css/galeria.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title> Home </title>
+    <title>Home</title>
 </head>
 <body>
     <main class="main">
@@ -15,16 +15,26 @@
 
         @if (Model.Count == 0)
         {
-            <h2>Nenhuma Imagem para ser exibida</h2>
+            <h2 class="no-images">Nenhuma Imagem para ser exibida</h2>
         }
+
         @foreach (var marco in Model)
         {
             <div class="gallery">
-                <a target="_blank" href="@marco.UrlArquivoStorage">
-                    <img src="@marco.UrlArquivoStorage" alt="Imagem Indisponivel" width="600" height="400">
-                </a>
-                <div class="desc">Data: @marco.DataInclusao.ToString("dd/MM/yyyy") Peso: @marco.Peso.ToString("0.##")</div>
+                @if (marco.UrlArquivoStorage != null)
+                {
+                    <a target="_blank" href="@marco.UrlArquivoStorage">
+                        <img src="@marco.UrlArquivoStorage" alt="Imagem Indisponivel" width="600" height="400">
+                    </a>
+                }
+                <div class="desc">
+                    @if (marco.UrlArquivoStorage != null)
+                    {
+                    Data: @marco.DataInclusao.ToString("dd/MM/yyyy"); Peso: @marco.Peso.ToString("0.##");
+                        }
+                </div>
             </div>
         }
     </main>
 </body>
+</html>
