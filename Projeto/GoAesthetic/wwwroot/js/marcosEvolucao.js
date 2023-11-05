@@ -80,7 +80,7 @@ $('#btnEnviar').on("click", function () {
                 })
             }
             else if (resultado.erro) {
-                window.location.href = '/Erro/Index';
+                window.location.href = '/Erro/ErroGenerico';
             }
             else {
                 informaErros(resultado.dados);

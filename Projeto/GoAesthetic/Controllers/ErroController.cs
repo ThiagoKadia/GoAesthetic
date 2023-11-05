@@ -10,7 +10,12 @@ namespace GoAesthetic.Controllers
         {
         }
 
-        public IActionResult Index()
+        public IActionResult ErroGenerico()
+        {
+            return View();
+        }
+
+        public IActionResult AcessoNegado()
         {
             return View();
         }

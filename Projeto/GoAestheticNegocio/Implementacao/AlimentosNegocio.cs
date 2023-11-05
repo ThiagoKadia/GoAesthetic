@@ -91,9 +91,24 @@ namespace GoAestheticNegocio.Implementacao
                                                                             .Select(a => a.Quantidade)
                                                                             .SumAsync();
 
-                refeicao.TotalCalorias = await Contexto.AlimentosViewModel.Where(a => a.RegistroRefeicaoId == refeicao.Id && a.InformacoesAlimento.Energia.HasValue)
-                                                                          .Select(a => a.InformacoesAlimento.Energia.Value)
-                                                                          .SumAsync();
+                
+                var listaAlimentosReifeicao = await Contexto.AlimentosViewModel.Where(a => a.RegistroRefeicaoId == refeicao.Id && a.InformacoesAlimento.Energia.HasValue)
+                                                                               .Select(a => new InformacoesAlimentosViewModel
+                                                                               {
+                                                                                   Quantidade = a.Quantidade,
+                                                                                   Energia = a.InformacoesAlimento.Energia
+                                                                               })
+                                                                               .ToListAsync();
+
+                foreach(var alimento in listaAlimentosReifeicao)
+                {
+                    var auxAlimento = alimento;
+                    CalculaValoresPorGrama(ref auxAlimento);
+                    MultiplicaValorPelaQuantidade(ref auxAlimento);
+
+                    refeicao.TotalCalorias += auxAlimento.Energia.Value;
+                }
+                
             }
 
             return listaRefeicoes;

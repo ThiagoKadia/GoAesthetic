@@ -9,7 +9,7 @@ $('#btnCalcularAlimento').on("click", function () {
 
     $.ajax({
         type: 'POST',
-        url: '/RegistrarRefeicoes/BuscaInformacoesAlimentos',
+        url: '/RegistrosRefeicoes/BuscaInformacoesAlimentos',
         data: {
             Id: $('#listaAlimentos option').filter(':selected').val(),
             Quantidade: $('#quantidade').val().replace('.', ',')
@@ -128,7 +128,7 @@ $('#btnSalvar').on("click", function () {
 
     $.ajax({
         type: 'POST',
-        url: '/RegistrarRefeicoes/RegistraRefeicao',
+        url: '/RegistrosRefeicoes/RegistraRefeicao',
         data: {
             ListaAlimentosAdicionados: refeicoesQuantidade, 
             nomeRefeicao: $('#Nome').val()
@@ -150,7 +150,7 @@ $('#btnSalvar').on("click", function () {
                 })
             }
             else if (resultado.erro) {
-                window.location.href = '/Erro/Index';
+                window.location.href = '/Erro/ErroGenerico';
             }
             else {
                 informaErros(resultado.dados);

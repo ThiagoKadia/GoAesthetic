@@ -4,12 +4,12 @@ $('#btnSalvar').on("click", function () {
     var textoAlert = "";
 
     if ($('#Inclusao').val()) {
-        url = '/Cadastro/RealizaCadastro';
+        url = '/Login/RealizaCadastro';
         tituloAlert = 'Cadastro Realizado';
         textoAlert = 'Seu cadastro foi criado com sucesso!';
     }
     else {
-        url = '/Cadastro/AtualizaCadastro';
+        url = '/Login/AtualizaCadastro';
         tituloAlert = 'Cadastro Atualizado';
         textoAlert = 'Seu cadastro foi atualizado com sucesso!';
     }
@@ -42,7 +42,7 @@ $('#btnSalvar').on("click", function () {
                 })
             }
             else if (resultado.erro) {
-                window.location.href = '/Erro/Index';
+                window.location.href = '/Erro/ErroGenerico';
             }
             else {
                 informaErros(resultado.dados);

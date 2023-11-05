@@ -15,13 +15,33 @@ namespace GoAesthetic.Controllers
         {
         }
 
-        public IActionResult Index()
+        public IActionResult CadastroMarco()
         {       
             return View();
         }
 
+        public async Task<IActionResult> Galeria()
+        {
+            var marcosNegocio = new MarcosEvolucaoNegocio(Contexto);
+
+            try
+            {
+                int idUsuarioLogado = BuscaIdUsuarioLogado();
+                var listaMarcos = await marcosNegocio.BuscarMarcosComFotos(idUsuarioLogado);
+                return View(listaMarcos);
+            }
+            catch (Exception ex)
+            {
+                await ErroNegocio.EscreveErroBanco(ex);
+                return RedirectToAction("ErroGenerico", "Erro");
+            }
+
+        }
+
+
+
         [HttpPost("/MarcosEvolucao/CadastraMarco")]
-        public async Task<IActionResult> Edit(MarcosEvolucaoViewModel marcosEvolucao)
+        public async Task<IActionResult> CadastraMarco(MarcosEvolucaoViewModel marcosEvolucao)
         {
             var marcoEvolucaoNegocio = new MarcosEvolucaoNegocio(Contexto);
             var resposta = new RespostaPadrao();

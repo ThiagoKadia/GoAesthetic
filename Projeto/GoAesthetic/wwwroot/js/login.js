@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     })
                 }
                 else if (resultado.erro) {
-                    window.location.href = '/Erro/Index';
+                    window.location.href = '/Erro/ErroGenerico';
                 }
                 else {
                     Swal.fire({

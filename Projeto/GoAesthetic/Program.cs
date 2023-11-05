@@ -32,10 +32,10 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(options =>
     {
         options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
-        options.LoginPath = "/Login";
-        options.LogoutPath = "/Login";
+        options.LoginPath = "/Login/LoginUsuario";
+        options.LogoutPath = "/Login/LoginUsuario";
         options.SlidingExpiration = true;
-        options.AccessDeniedPath = "/AcessoNegado";
+        options.AccessDeniedPath = "/Erro/AcessoNegado";
         options.Cookie.Name = "GoAestheticCookie";
     });
 

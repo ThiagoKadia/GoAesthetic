@@ -40,12 +40,11 @@ namespace GoAestheticNegocio.Implementacao
         public async Task CadastraMarcoEvolucao(MarcosEvolucaoViewModel marcosEvolucao, int idUsuario)
         {
 
-            int qtdMarcoEvolucaoUsuario = (await Contexto.MarcosEvolucaoViewModel.CountAsync()) + 1;
-
-            string nomeArquivo = "MarcoEvolucao" + qtdMarcoEvolucaoUsuario.ToString() + Path.GetExtension(marcosEvolucao.Arquivo.FileName);
+            int qtdMarcoEvolucaoUsuario = (await Contexto.MarcosEvolucaoViewModel.CountAsync()) + 1;           
 
             if (marcosEvolucao.Arquivo != null)
             {
+                string nomeArquivo = "MarcoEvolucao" + qtdMarcoEvolucaoUsuario.ToString() + Path.GetExtension(marcosEvolucao.Arquivo.FileName);
                 var storageHelper = new StorageHelper();
 
                 using (MemoryStream ms = new MemoryStream())

@@ -17,11 +17,11 @@
 
             @foreach (var refeicao in Model)
             {
-                <div class="meal-item" onclick="window.location.href = '/RegistrarRefeicoes/InformacoesRefeicao?refeicaoId=@refeicao.Id';">
+                <div class="meal-item" onclick="window.location.href = '/RegistrosRefeicoes/InformacoesRefeicao?refeicaoId=@refeicao.Id';">
                     <div class="meal-card">
                         <h3>@refeicao.Nome</h3>
-                        <p>Calorias: @refeicao.TotalCalorias</p>
-                        <p>Grama: @refeicao.TotalQuantidade</p>
+                        <p>Calorias: @refeicao.TotalCalorias.ToString("0.##")</p>
+                        <p>Grama: @refeicao.TotalQuantidade.ToString("0.##")</p>
                         <p>Data: @refeicao.DataInclusao.ToString("dd/MM/yyyy")</p>
                     </div>
                 </div>

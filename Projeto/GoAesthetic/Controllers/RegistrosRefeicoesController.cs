@@ -9,27 +9,53 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GoAesthetic.Controllers
 {
-    public class RegistrarRefeicoesController : BaseController
+    public class RegistrosRefeicoesController : BaseController
     {
-        public RegistrarRefeicoesController(GoAestheticDbContext context) : base(context)
+        public RegistrosRefeicoesController(GoAestheticDbContext context) : base(context)
         {
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> RegistrarRefeicao()
         {
-            var alimentos = await Contexto.InformacoesAlimentosViewModel.Select(x => new { Id = x.Id, Value = x.Nome })
+            try
+            {
+                var alimentos = await Contexto.InformacoesAlimentosViewModel.Select(x => new { Id = x.Id, Value = x.Nome })
                                                                         .AsNoTracking()
                                                                         .ToListAsync();
 
-            List<SelectListItem> itens = new List<SelectListItem>();
-            foreach (var alimento in alimentos)
-            {
-                itens.Add(new SelectListItem { Value = alimento.Id.ToString(), Text = alimento.Value });
-            }
+                List<SelectListItem> itens = new List<SelectListItem>();
+                foreach (var alimento in alimentos)
+                {
+                    itens.Add(new SelectListItem { Value = alimento.Id.ToString(), Text = alimento.Value });
+                }
 
-            ViewBag.Alimentos = new SelectList(itens, "Value", "Text");
+                ViewBag.Alimentos = new SelectList(itens, "Value", "Text");
+            }
+            catch(Exception ex)
+            {
+                await ErroNegocio.EscreveErroBanco(ex);
+                return RedirectToAction("ErroGenerico", "Erro");
+            }
+            
 
             return View();
+        }
+
+        public async Task<IActionResult> Historico()
+        {
+            var alimentoNegocio = new AlimentosNegocio(Contexto);
+
+            try
+            {
+                var listaRefeicoes = await alimentoNegocio.BuscaListaRefeicoesUsuario(BuscaIdUsuarioLogado());
+                return View(listaRefeicoes);
+            }
+            catch (Exception ex)
+            {
+                await ErroNegocio.EscreveErroBanco(ex);
+                return RedirectToAction("ErroGenerico", "Erro");
+            }
+
         }
 
         public async Task<IActionResult> InformacoesRefeicao(int refeicaoId)
@@ -53,11 +79,11 @@ namespace GoAesthetic.Controllers
             catch (Exception ex)
             {               
                 await ErroNegocio.EscreveErroBanco(ex);
-                return RedirectToAction("Index", "Erro");
+                return RedirectToAction("ErroGenerico", "Erro");
             }
         }
 
-        [HttpPost("/RegistrarRefeicoes/BuscaInformacoesAlimentos")]
+        [HttpPost("/RegistrosRefeicoes/BuscaInformacoesAlimentos")]
         public async Task<IActionResult> BuscaInformacoesAlimentos(InformacoesAlimentosViewModel alimentoBuscar)
         {
             var alimentoNegocio = new AlimentosNegocio(Contexto);
@@ -80,7 +106,7 @@ namespace GoAesthetic.Controllers
             return Json(resposta);
         }
 
-        [HttpPost("/RegistrarRefeicoes/RegistraRefeicao")]
+        [HttpPost("/RegistrosRefeicoes/RegistraRefeicao")]
         public async Task<IActionResult> RegistraRefeicao(List<AlimentosViewModel> listaAlimentosAdicionados, string nomeRefeicao)
         {
             var alimentoNegocio = new AlimentosNegocio(Contexto);
@@ -88,7 +114,7 @@ namespace GoAesthetic.Controllers
 
             try
             {
-                if (ValidaRequestValida(listaAlimentosAdicionados, nomeRefeicao, ref resposta))
+                if (ValidaRegistroRefeicao(listaAlimentosAdicionados, nomeRefeicao, ref resposta))
                 {
                     await alimentoNegocio.CadastroRefeicao(listaAlimentosAdicionados, nomeRefeicao, BuscaIdUsuarioLogado());
                     resposta.Sucesso = true;
@@ -104,7 +130,7 @@ namespace GoAesthetic.Controllers
             return Json(resposta);
         }
 
-        private bool ValidaRequestValida(List<AlimentosViewModel> listaAlimentosAdicionados, string nomeRefeicao, ref RespostaPadrao resposta)
+        private bool ValidaRegistroRefeicao(List<AlimentosViewModel> listaAlimentosAdicionados, string nomeRefeicao, ref RespostaPadrao resposta)
         {
             bool valida = true;
 

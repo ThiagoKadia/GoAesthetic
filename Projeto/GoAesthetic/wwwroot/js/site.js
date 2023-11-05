@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         url: '/Login/RealizaLogout',
                         datatype: "JSON",
                         success: (resultado) => {
-                            window.location.href = "/Login";
+                            window.location.href = "/Login/LoginUsuario";
                         }
                     });
                 }
