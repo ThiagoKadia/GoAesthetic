@@ -82,6 +82,7 @@ namespace GoAestheticNegocio.Implementacao
         public async Task<List<RegistroRefeicoesViewModel>> BuscaListaRefeicoesUsuario(int idUsuario)
         {
             var listaRefeicoes = await Contexto.RegistroRefeicoesViewModel.Where(r => r.UsuarioId == idUsuario)
+                                                                          .OrderByDescending(r => r.DataInclusao)
                                                                           .AsNoTracking()
                                                                           .ToListAsync();
 

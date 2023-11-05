@@ -1,5 +1,6 @@
 ﻿using GoAesthetic.Controllers.ControllersBase;
 using GoAestheticEntidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoAesthetic.Controllers
@@ -10,11 +11,13 @@ namespace GoAesthetic.Controllers
         {
         }
 
+        [AllowAnonymous]
         public IActionResult ErroGenerico()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult AcessoNegado()
         {
             return View();
