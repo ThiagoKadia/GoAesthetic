@@ -11,11 +11,14 @@
         <h1>Marco de Evolução</h1>
         <form id="cadastro-marco" enctype="Multipart/Form-Data">
             <label for="altura">Altura:</label>
-            <input type="text" id="Altura" name="altura" placeholder="Altura em cm" required>
+            <input type="number" id="Altura" name="altura" step="0.01" placeholder="Altura em cm" required>
+
             <label for="peso">Peso:</label>
-            <input type="text" id="Peso" name="peso" placeholder="Peso em kg" required>
+            <input type="number" id="Peso" name="peso" step="0.01" placeholder="Peso em kg" required>
+
 
             <label for="foto">Foto (apenas .jpg, .jpeg, .png):</label>
+
             <input type="file" id="Arquivo" name="Arquivo" accept=".jpg, .jpeg, .png" onchange="previewImage(this)">
 
 
@@ -24,7 +27,7 @@
                 <img id="preview">
             </div>
 
-            <button id="btnEnviar" type="button">Cadastrar</button>
+            <button id="btnEnviar" class="btnEnviar" type="button">Cadastrar</button>
         </form>
 
     </div>

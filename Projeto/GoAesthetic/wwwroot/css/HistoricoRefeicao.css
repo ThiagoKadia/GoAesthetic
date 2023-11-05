@@ -15,6 +15,21 @@
     gap: 20px;
 }
 
+.center-vertically {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+h2.no-images {
+    text-align: center;
+    margin: 0;
+}
+
+
+
 .meal-item {
     background-color: #2f4538;
     border-radius: 8px;
@@ -35,3 +50,5 @@
         margin: 5px 0;
         color: #e6e6e6;
     }
+
+
