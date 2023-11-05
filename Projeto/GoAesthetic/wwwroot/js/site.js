@@ -23,7 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     $.ajax({
                         type: 'POST',
                         url: '/Login/RealizaLogout',
-                        datatype: "JSON",                       
+                        datatype: "JSON",
+                        success: (resultado) => {
+                            window.location.href = "/Login";
+                        }
                     });
                     window.location.href = "/Login";
                 }
