@@ -61,13 +61,12 @@ input[type="number"]{
         height: 250px;
     }
 
-button {
+.btnEnviar {
     background-color: #006400;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
     margin-top: 20px;
     cursor: pointer;
 }

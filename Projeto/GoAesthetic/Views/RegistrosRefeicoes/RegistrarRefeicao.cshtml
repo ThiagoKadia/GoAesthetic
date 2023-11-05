@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="~/css/Registrar.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <title> Home </title>
 </head>
 
@@ -22,7 +23,7 @@
                 <br>
 
                 <label for="Alimentos">Alimento:</label>
-                <select asp-items="alimentos" id="listaAlimentos" class="selectbox" placeholder="Escolha um Alimento"></select>
+                <select asp-items="alimentos" id="listaAlimentos" class="selectbox select-alimentos" placeholder="Escolha um Alimento"></select>
                 <br>
 
                 <label for="quantidade">Quantidade (g):</label>
