@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             window.location.href = "/Login";
                         }
                     });
-                    window.location.href = "/Login";
                 }
             });
         });
