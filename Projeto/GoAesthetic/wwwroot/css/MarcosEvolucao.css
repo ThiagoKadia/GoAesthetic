@@ -1,6 +1,4 @@
-﻿
-
-.marcosEevolucao {
+﻿.marcosEevolucao {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -15,7 +13,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
-
 
 h1 {
     font-size: 24px;
@@ -33,43 +30,36 @@ label {
     margin-top: 10px;
 }
 
-input {
-    width: 100%;
-    background-color: #F9F5EC;
-    color: #181920;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Remover margem interna */
+}
+
+input[type="text"],
+input[type="file"],
+input[type="number"]{
+    background-color: #181920;
+    color: #F9F5EC;
     padding: 10px;
     border: none;
     border-radius: 8px;
     margin-top: 5px;
 }
 
-    /* Estilizando o campo de envio de foto */
-    input[type="file"] {
-        margin-top: 10px;
-        background-color: #F9F5EC;
-        color: #181920;
-        padding: 10px;
-        border: none;
-        border-radius: 8px;
-    }
-
-.image-preview {
+.input[type="file"] {
     margin-top: 10px;
-    text-align: center;
 }
-/* Outros estilos permanecem inalterados */
 
 .image-preview {
-    text-align: center;
     margin-top: 10px;
+    text-align: center;
 }
 
     .image-preview img {
-        width:200px;
+        width: 200px;
         height: 250px;
     }
-
-
 
 button {
     background-color: #006400;
@@ -82,9 +72,6 @@ button {
     cursor: pointer;
 }
 
-    button:hover {
-        background-color: #004c00;
-    }
 
 .historico {
     text-align: center;

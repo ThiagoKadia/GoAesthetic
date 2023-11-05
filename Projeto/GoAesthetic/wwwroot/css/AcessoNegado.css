@@ -1,41 +1,12 @@
 ﻿body {
-    background-color: #1B1F27;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
-}
-
-.acessoNegado-page {
+    text-align: center;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #181920;
-    border-radius: 30px;
-    width: 355px;
-    height: 450px;
-    padding: 50px;
-    margin: auto;
-    margin-top: 10vh;
-}
-
-.acessoNegado {
-    display: flex;
-    height: 100vh;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-.acessoNegado-page h1 {
-    color: #F9F5EC;
-    font-size: 24px;
-    margin: 10px 0;
-}
-
-.acessoNegado-page p {
-    color: #F9F5EC;
-    font-size: 16px;
-    text-align: center;
-    margin: 10px 0;
-}
 
 a {
     color: #5568FE;
