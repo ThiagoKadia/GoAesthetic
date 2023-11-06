@@ -20,7 +20,7 @@ namespace GoAestheticNegocio.Implementacao
         public async Task<List<MarcosEvolucaoViewModel>> BuscarMarcosComFotos(int idUsuario)
         {
             var listaMarcosEvolucao = await Contexto.MarcosEvolucaoViewModel.Where(m => m.UsuarioId == idUsuario && m.NomeArquivoFoto != null)
-                                                                            .OrderBy(m => m.DataInclusao)
+                                                                            .OrderByDescending(m => m.DataInclusao)
                                                                             .AsNoTracking()
                                                                             .ToListAsync();
 
