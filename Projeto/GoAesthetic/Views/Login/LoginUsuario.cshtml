@@ -9,7 +9,6 @@
 <body>
     <section class="area-login">
         <div class="login">
-
             <div>
                 <img src="/img/logo.png">
             </div>
@@ -18,13 +17,12 @@
                 <input asp-for="Email" type="text" name="email" placeholder="Email" autofocus>
                 <input asp-for="Senha" type="password" name="senha" placeholder="Senha">
                 <span class"lnr-eye"></span>
-                <input type="submit" value="entrar">
+                <input type="submit" value="entrar" id="btnLogin">
             </form>
-            <p>Não tem cadastro? <a href="/Login/CadastroUsuario">Criar um conta</a></p>
-            
-        </div>      
-
-    </section>
+            <p>Não tem cadastro? <a href="/Login/CadastroUsuario">Criar um conta</a></p>           
+        </div>  
+        <div class="custom-loader" style = "display:none"></div>
+    </section>   
 </body>
 
 @section Scripts{

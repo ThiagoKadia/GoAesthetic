@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const senha = loginForm.querySelector('input[name="senha"]').value;
-
+        $('.custom-loader').show();
+        $('#btnLogin').attr('disabled', 'disabled');
         $.ajax({
             type: 'POST',
             url: '/Login/RealizaLogin',
@@ -43,6 +43,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         },
                     });
                 }
+            },
+            complete: function () {
+                $('.custom-loader').hide();
+                $('#btnLogin').removeAttr('disabled');
             }
         });
     })

@@ -7,6 +7,8 @@ $('#btnCalcularAlimento').on("click", function () {
         return;
     }
 
+    $('.custom-loader').show();
+    $('#btnCalcularAlimento').attr('disabled', 'disabled');
     $.ajax({
         type: 'POST',
         url: '/RegistrosRefeicoes/BuscaInformacoesAlimentos',
@@ -34,8 +36,12 @@ $('#btnCalcularAlimento').on("click", function () {
                 $("#resumoAlimento tbody").append(novaLinha);
             }
             else if (resultado.erro) {
-                window.location.href = '/Erro/Index';
+                window.location.href = '/Erro/ErroGenerico';
             }
+        },
+        complete: function () {
+            $('.custom-loader').hide();
+            $('#btnCalcularAlimento').removeAttr('disabled');
         }
     });
 });
@@ -126,6 +132,8 @@ $('#btnSalvar').on("click", function () {
         refeicoesQuantidade.push(alimentoAdicionado);
     });
 
+    $('.custom-loader').show();
+    $('#btnSalvar').attr('disabled', 'disabled');
     $.ajax({
         type: 'POST',
         url: '/RegistrosRefeicoes/RegistraRefeicao',
@@ -155,6 +163,10 @@ $('#btnSalvar').on("click", function () {
             else {
                 informaErros(resultado.dados);
             }
+        },
+        complete: function () {
+            $('.custom-loader').hide();
+            $('#btnSalvar').removeAttr('disabled');
         }
     });
 });

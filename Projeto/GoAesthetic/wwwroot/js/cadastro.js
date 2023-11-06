@@ -13,6 +13,9 @@ $('#btnSalvar').on("click", function () {
         tituloAlert = 'Cadastro Atualizado';
         textoAlert = 'Seu cadastro foi atualizado com sucesso!';
     }
+
+    $('.custom-loader').show();
+    $('#btnSalvar').attr('disabled', 'disabled');
     $.ajax({
         type: 'POST',
         url: url,
@@ -47,6 +50,10 @@ $('#btnSalvar').on("click", function () {
             else {
                 informaErros(resultado.dados);
             }
+        },
+        complete: function () {
+            $('.custom-loader').hide();
+            $('#btnSalvar').removeAttr('disabled');
         }
     });
 });

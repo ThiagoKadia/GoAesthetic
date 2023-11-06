@@ -59,6 +59,9 @@ $('#btnEnviar').on("click", function () {
     var file = fileInput.files[0];
     model.append("Arquivo", file);
 
+
+    $('.custom-loader').show();
+    $('#btnEnviar').attr('disabled', 'disabled');
     $.ajax({
         type: 'POST',
         url: '/MarcosEvolucao/CadastraMarco',
@@ -85,6 +88,10 @@ $('#btnEnviar').on("click", function () {
             else {
                 informaErros(resultado.dados);
             }
+        },
+        complete: function () {
+            $('.custom-loader').hide();
+            $('#btnEnviar').removeAttr('disabled');
         }
     });
 });
