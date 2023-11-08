@@ -39,6 +39,7 @@ jobs:
         with:
           name: .net-app
           path: ./Projeto/publish
+          retention-days: 1
 
   deploy:
     runs-on: windows-latest
