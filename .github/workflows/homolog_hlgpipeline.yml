@@ -45,7 +45,7 @@ jobs:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'Homolog'
+      name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -59,7 +59,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{secrets.WEBSITEHLGNAME}}
-          slot-name: 'Homolog'
+          slot-name: 'Production'
           publish-profile: ${{ secrets.WEBAPPHLGSECRET }}
           package: ./website
 
@@ -68,6 +68,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{secrets.APIHLGNAME}}
-          slot-name: 'Homolog'
+          slot-name: 'Production'
           publish-profile: ${{ secrets.APIHLGSECRET }}
           package: ./api
