@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - GoAestheticHomolog
+name: Build and deploy GoAesthetic Homolog on Azure
 
 on:
   push:
@@ -22,23 +22,30 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: Build webapp with dotnet
+        run: dotnet build --configuration Release ./Projeto/GoAesthetic/GoAesthetic.sln
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      - name: dotnet publish webapp
+        run: dotnet publish -c Release -o ./Projeto/publish/website ./Projeto/GoAesthetic/GoAesthetic.sln
+
+      - name: Build api with dotnet
+        run: dotnet build --configuration Release ./Projeto/GoAetheticApi/GoAetheticApi.sln
+
+      - name: dotnet publish api
+        run: dotnet publish -c Release -o ./Projeto/publish/api ./Projeto/GoAetheticApi/GoAetheticApi.sln
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ./Projeto/publish
+          retention-days: 1
 
   deploy:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'Production'
+      name: 'Homolog'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -47,11 +54,20 @@ jobs:
         with:
           name: .net-app
 
-      - name: Deploy to Azure Web App
+      - name: Deploy to Azure Web App in HOMOLOG
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'GoAestheticHomolog'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2EF52BC53EFA4DC28762D044C15E680C }}
-          package: .
+          app-name: ${{secrets.WEBSITEHLGNAME}}
+          slot-name: 'Homolog'
+          publish-profile: ${{ secrets.WEBAPPHLGSECRET }}
+          package: ./website
+
+      - name: Deploy to Azure API in HOMOLOG
+        id: deploy-to-api
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{secrets.APIHLGNAME}}
+          slot-name: 'Homolog'
+          publish-profile: ${{ secrets.APIHLGSECRET }}
+          package: ./api
