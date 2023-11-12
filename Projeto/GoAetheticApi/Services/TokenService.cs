@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using GoAestheticNegocio.Helpers;
 
 namespace GoAetheticApi.Services
 {
@@ -11,7 +12,7 @@ namespace GoAetheticApi.Services
         public string GerarToken(AutorizacaoViewModel user) 
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            var key = Encoding.ASCII.GetBytes(EnvironmentHelper.BuscaStringSegredoToken().Result);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

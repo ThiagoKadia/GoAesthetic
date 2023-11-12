@@ -17,7 +17,8 @@
       "applicationUrl": "https://localhost:7008;http://localhost:5092",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DbConnectionString": "Server=DUNOTEBOOK\\SQLEDUARDO;Database=GoAestethic;User Id=sa;Password=1camisa*;TrustServerCertificate=True;"
+        "DbConnectionString": "Server=DUNOTEBOOK\\SQLEDUARDO;Database=GoAesthetic;User Id=sa;Password=1camisa*;TrustServerCertificate=True;",
+        "StringSegredoToken": "ad4dc6fbfaf94ffeb704994fb4926a770d6b885cd4da4bc18da98cac31e0be8388b9fb60165"
       }
     },
     "IIS Express": {
