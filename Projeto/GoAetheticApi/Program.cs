@@ -11,7 +11,7 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var key = Encoding.ASCII.GetBytes(Settings.Secret);
+var key = Encoding.ASCII.GetBytes(EnvironmentHelper.BuscaStringSegredoToken().Result);
 
 builder.Services.AddDbContext<GoAestheticDbContext>(options =>
 {

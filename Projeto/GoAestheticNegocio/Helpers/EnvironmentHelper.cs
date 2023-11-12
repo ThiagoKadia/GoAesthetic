@@ -14,8 +14,7 @@ namespace GoAestheticNegocio.Helpers
         {
             string conexao = string.Empty;
 
-            SecretClient secretclient;
-            secretclient = new SecretClient(new Uri("https://goaesthetic.vault.azure.net"), new DefaultAzureCredential());
+            SecretClient secretclient = new SecretClient(new Uri("https://goaesthetic.vault.azure.net"), new DefaultAzureCredential());
             switch (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"))
             {
                 case "Development":
@@ -51,6 +50,35 @@ namespace GoAestheticNegocio.Helpers
                 segredo = await secretclient.GetSecretAsync("stringConexaoStorageHMG");
 
             return segredo.Value;
+        }
+
+        public static async Task<string> BuscaStringSegredoToken()
+        {
+            string conexao = string.Empty;
+
+            SecretClient secretclient = new SecretClient(new Uri("https://goaesthetic.vault.azure.net"), new DefaultAzureCredential());
+            switch (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"))
+            {
+                case "Development":
+                    {
+                        conexao = Environment.GetEnvironmentVariable("StringSegredoToken") ?? "";
+                    }
+                    break;
+                case "Homolog":
+                    {
+                        var secret = await secretclient.GetSecretAsync("stringSegredoTokenHMG");
+                        conexao = secret.Value.Value;
+                    }
+                    break;
+                case "Production":
+                    {
+                        var secret = await secretclient.GetSecretAsync("stringSegredoTokenProd");
+                        conexao = secret.Value.Value;
+                    }
+                    break;
+            }
+
+            return conexao;
         }
 
     }
