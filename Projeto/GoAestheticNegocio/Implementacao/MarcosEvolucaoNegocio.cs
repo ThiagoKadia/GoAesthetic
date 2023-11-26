@@ -1,4 +1,5 @@
-﻿using GoAestheticEntidades;
+﻿using GoAestheticComuns.Classes;
+using GoAestheticEntidades;
 using GoAestheticEntidades.Entities;
 using GoAestheticNegocio.Helpers;
 using GoAestheticNegocio.Implementacao.ImplementacaoBase;
@@ -64,6 +65,36 @@ namespace GoAestheticNegocio.Implementacao
             Contexto.MarcosEvolucaoViewModel.Add(marcosEvolucao);
             await Contexto.SaveChangesAsync();
 
+        }
+
+
+        public async Task<List<RelatorioMarcosEvolucao>> BuscaRelatorioMensal(int idUsuario)
+        {
+            var relatorio = new List<RelatorioMarcosEvolucao>();
+
+            string[] meses = new string[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                                            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
+
+            for (int i = 0; i < meses.Length; i++)
+            {
+                var marcosDoMes = await Contexto.MarcosEvolucaoViewModel.Where(r => r.UsuarioId == idUsuario &&
+                                                                                    r.DataInclusao.Month == i + 1)
+                                                                        .Select(r => new { r.Altura, r.Peso })
+                                                                        .ToListAsync();
+
+                if (marcosDoMes.Count != 0)
+                {
+                    var rel = new RelatorioMarcosEvolucao()
+                    {
+                        Referencia = meses[i],
+                        Altura = marcosDoMes.Average(r => r.Altura),
+                        Peso = marcosDoMes.Average(r => r.Peso)
+                    };
+                    rel.Referencia = meses[i];
+                    relatorio.Add(rel);
+                }
+            }
+            return relatorio;
         }
     }
 }
