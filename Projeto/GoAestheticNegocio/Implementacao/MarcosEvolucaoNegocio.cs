@@ -78,7 +78,8 @@ namespace GoAestheticNegocio.Implementacao
             for (int i = 0; i < meses.Length; i++)
             {
                 var marcosDoMes = await Contexto.MarcosEvolucaoViewModel.Where(r => r.UsuarioId == idUsuario &&
-                                                                                    r.DataInclusao.Month == i + 1)
+                                                                                    r.DataInclusao.Month == i + 1 &&
+                                                                                    r.DataInclusao.Year == DateTime.Now.Year)
                                                                         .Select(r => new { r.Altura, r.Peso })
                                                                         .ToListAsync();
 
