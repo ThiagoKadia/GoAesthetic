@@ -20,8 +20,10 @@
             <div>
                 <label for="chartType">Selecionar:</label>
                 <select id="chartType">
-                    <option value="month">Mês</option>
-                    <option value="weekday">Dia da Semana</option>
+                    <option value="0" selected disabled hidden>Selecione</option>
+                    <option value="1">Alimentação - Mensal</option>
+                    <option value="2">Alimentação - Semanal</option>
+                    <option value="3">Evolução - Mensal</option>
                 </select>
             </div>
             <div class="chart-container">
@@ -29,6 +31,10 @@
             </div>
         </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/relatorio.js"></script>
+
 </body>
+
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/relatorio.js"></script>
+}

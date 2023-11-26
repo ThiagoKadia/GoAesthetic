@@ -1,4 +1,5 @@
-﻿using GoAestheticEntidades;
+﻿using GoAestheticComuns.Classes;
+using GoAestheticEntidades;
 using GoAestheticEntidades.Entities;
 using GoAestheticNegocio.Helpers;
 using GoAestheticNegocio.Implementacao.ImplementacaoBase;
@@ -143,6 +144,94 @@ namespace GoAestheticNegocio.Implementacao
             }
 
             return refeicao;
+        }
+
+
+        public async Task<List<RelatorioAlimentos>> BuscaRelatorioMensal(int idUsuario)
+        {
+            var relatorio  = new List<RelatorioAlimentos>();
+
+            string[] meses = new string[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                                            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
+
+            for (int i = 0; i < meses.Length; i++)
+            {
+                var refeicaoDoMes = await Contexto.RegistroRefeicoesViewModel.Where(r => r.UsuarioId == idUsuario &&
+                                                                                    r.DataInclusao.Month == i + 1)
+                                                                             .Select(r => r.Id)                                                                           
+                                                                             .ToListAsync();
+
+                if(refeicaoDoMes.Count != 0)
+                {
+                    var rel = await SomaAlimentosRefeicoes(refeicaoDoMes);
+                    rel.Referencia = meses[i];
+                    relatorio.Add(rel);
+                }
+            }
+            return relatorio;
+        }
+
+        public async Task<List<RelatorioAlimentos>> BuscaRelatorioSemanal(int idUsuario)
+        {
+            var relatorio = new List<RelatorioAlimentos>();
+
+            string[] semanas = new string[] { "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado"};
+
+            var refeicoes = await Contexto.RegistroRefeicoesViewModel.Where(r => r.UsuarioId == idUsuario)                                                                                    
+                                                                     .Select(r => new { r.Id, r.DataInclusao })
+                                                                     .ToListAsync();
+
+            for (int i = 0; i < semanas.Length; i++)
+            {
+                var RefeicaoDiaSemana = refeicoes.Where(r => r.DataInclusao.DayOfWeek == (DayOfWeek)i);
+
+                if(RefeicaoDiaSemana.Any())
+                {
+                    int diasDiferentes = RefeicaoDiaSemana.GroupBy(r => r.DataInclusao.Date).Count();
+                    var rel = await SomaAlimentosRefeicoes(RefeicaoDiaSemana.Select(r => r.Id).ToList());
+
+                    rel.Referencia = semanas[i];
+                    rel.Quantidade = rel.Quantidade / diasDiferentes;
+                    rel.Calorias = rel.Calorias / diasDiferentes;
+                    rel.Proteinas = rel.Proteinas / diasDiferentes;
+                    rel.Carboidratos = rel.Carboidratos / diasDiferentes;
+                    rel.Gorduras = rel.Gorduras / diasDiferentes;
+                    relatorio.Add(rel);
+                }              
+            }
+            return relatorio;
+        }
+
+        public async Task<RelatorioAlimentos> SomaAlimentosRefeicoes(List<int> refeicoesSomar)
+        {
+            var todosAlimentosRefeicoes = await Contexto.AlimentosViewModel.Where(a => refeicoesSomar.Contains(a.RegistroRefeicaoId))
+                                                                            .Select(a => new AlimentosViewModel
+                                                                            {
+                                                                                InformacaoAlimentoId = a.InformacaoAlimentoId,
+                                                                                Quantidade = a.Quantidade,
+                                                                                InformacoesAlimento = a.InformacoesAlimento
+                                                                            })
+                                                                            .AsNoTracking()
+                                                                            .ToListAsync();
+
+            RelatorioAlimentos rel = new RelatorioAlimentos();
+
+            foreach (var alimento in todosAlimentosRefeicoes)
+            {
+                var infoAlimento = alimento.InformacoesAlimento;
+                infoAlimento.Quantidade = alimento.Quantidade;
+
+                CalculaValoresPorGrama(ref infoAlimento);
+                MultiplicaValorPelaQuantidade(ref infoAlimento);
+
+                rel.Quantidade += infoAlimento.Quantidade;
+                rel.Calorias += infoAlimento.Energia.GetValueOrDefault();
+                rel.Proteinas += infoAlimento.Proteina.GetValueOrDefault();
+                rel.Carboidratos += infoAlimento.Carboidratos.GetValueOrDefault();
+                rel.Gorduras += infoAlimento.Lipideos.GetValueOrDefault();
+            }
+
+            return rel;
         }
     }
 }

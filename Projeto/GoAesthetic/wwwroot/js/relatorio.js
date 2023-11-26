@@ -1,68 +1,45 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
-    const monthData = {
-        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-        datasets: [
-            {
-                label: 'Proteína (g)',
-                data: [120, 130, 110, 140, 125, 135],
-                backgroundColor: 'rgba(255, 255, 255, 0)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 2,
-            },
-            {
-                label: 'Carboidrato (g)',
-                data: [250, 270, 300, 280, 290, 260],
-                backgroundColor: 'rgba(255, 255, 255, 0)',
-                borderColor: 'rgba(255, 206, 86, 1)',
-                borderWidth: 2,
-            },
-            {
-                label: 'Gordura (g)',
-                data: [80, 75, 85, 90, 70, 95],
-                backgroundColor: 'rgba(255, 255, 255, 0)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 2,
-            },
-        ],
-    };
-
-    const weekdayData = {
-        labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
-        datasets: [
-            {
-                label: 'Proteína (g)',
-                data: [120, 130, 110, 140, 125, 135, 115],
-                backgroundColor: 'rgba(255, 255, 255, 0)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 2,
-            },
-            {
-                label: 'Carboidrato (g)',
-                data: [250, 270, 300, 280, 290, 260, 275],
-                backgroundColor: 'rgba(255, 255, 255, 0)',
-                borderColor: 'rgba(255, 206, 86, 1)',
-                borderWidth: 2,
-            },
-            {
-                label: 'Gordura (g)',
-                data: [80, 75, 85, 90, 70, 95, 88],
-                backgroundColor: 'rgba(255, 255, 255, 0)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 2,
-            },
-        ],
-    };
-
     let currentChart;
 
     function updateChartType() {
         const chartType = document.getElementById('chartType').value;
 
-        if (chartType === 'month') {
-            updateChart(monthData);
-        } else if (chartType === 'weekday') {
-            updateChart(weekdayData);
-        }
+        $('.custom-loader').show();
+        $('#chartType').attr('disabled', 'disabled');
+        $.ajax({
+            type: 'POST',
+            url: '/Relatorios/MontaRelatorio',
+            data: {
+                TipoGrafico: chartType
+            },
+            datatype: "JSON",
+            ContentType: "application/json",
+            success: (resultado) => {
+                if (resultado.sucesso) {
+                    var dadosRelatorio = {
+                        labels: new Array(),
+                        datasets: new Array()
+                    };
+
+                    resultado.labels.forEach((elemento) => {
+                        dadosRelatorio.labels.push(elemento);
+                    });
+
+                    resultado.datasets.forEach((elemento) => {
+                        dadosRelatorio.datasets.push(elemento);
+                    });
+
+                    updateChart(dadosRelatorio);
+                }
+                else if (resultado.erro) {
+                    window.location.href = '/Erro/ErroGenerico';
+                }
+            },
+            complete: function () {
+                $('.custom-loader').hide();
+                $('#chartType').removeAttr('disabled');
+            }
+        });
     }
 
     function updateChart(data) {
